@@ -1,0 +1,189 @@
+﻿
+<panel panel-class="panel-primary" heading="{{pagelabalObj.AddDivTitle}}">
+    <panel-controls>
+        <panel-control-collapse></panel-control-collapse>
+        <!--<button class="button-icon"><i class="glyphicon glyphicon-cog"></i></button>
+        <button class="button-icon"><i class="glyphicon glyphicon-wrench"></i></button>-->
+    </panel-controls>
+    <p>{{pagelabalObj.RequireNote}}</p>
+    <form class="form-horizontal row-border" name="form.UserAddObj">
+        <ul>
+            <li ng-repeat="e in errors">{{e}}</li>
+        </ul>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">{{pagelabalObj.Name}}</label>
+            <div class="col-sm-6">
+                <input type="text"
+                       name="name"
+                       ng-model="UserAddObj.name"
+                       class="form-control"
+                       data-maxlength=50
+                       required
+                       placeholder="{{pagelabalObj.Name}}" />
+                <span class="requiredinput">*</span>
+                <span class="help-block"
+                      ng-show="form.UserAddObj.name.$error.maxlength && form.UserAddObj.name.$dirty">
+                    {{pagelabalObj.FielMaxlength}}
+                </span>
+                <span class="help-block"
+                      ng-show="form.UserAddObj.name.$error.required && form.UserAddObj.name.$dirty">
+                    {{pagelabalObj.FieldRequired}}
+                </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">{{pagelabalObj.UserName}}</label>
+            <div class="col-sm-6">
+                <input type="text"
+                       name="userName"
+                       ng-model="UserAddObj.userName"
+                       class="form-control"
+                       data-maxlength=50
+                       required
+                       ng-pattern="{{'^[a-zA-Z0-9_.-]*$'}}"
+                       placeholder="{{pagelabalObj.UserName}}" />
+                <span class="requiredinput">*</span>
+                <!--<p class="help-block">{{pagelabalObj.UserName}}</p>-->
+                <span class="help-block"
+                      ng-show="form.UserAddObj.userName.$error.maxlength && form.UserAddObj.userName.$dirty">
+                    {{pagelabalObj.FielMaxlength}}
+                </span>
+                <span class="help-block"
+                      ng-show="form.UserAddObj.userName.$error.required && form.UserAddObj.userName.$dirty">
+                    {{pagelabalObj.FieldRequired}}
+                </span>
+
+                <span class="help-block"
+                      ng-show="form.UserAddObj.userName.$error.pattern">
+                    {{pagelabalObj.enterValidUserName}}
+                </span>
+            </div>
+        </div>
+        
+        <!--<div class="form-group">
+            <label class="col-sm-3 control-label">{{pagelabalObj.role}}</label>
+            <div class="col-sm-6">
+                <select ng-model="UserAddObj.role"
+                        name="cityId" required=""
+                        placeholder="{{pagelabalObj.chooseRole}}"
+                        class="col-xs-6 form-control">
+                    <option ng-repeat="role in roles" value="{{role.id}}">{{role.name}}</option>
+                </select>
+                <span class="requiredinput">*</span>
+                <span class="help-block"
+                      ng-show="form.UserAddObj.role.$error.required && form.UserAddObj.role.$dirty">
+                    {{pagelabalObj.roleRequired}}
+                </span>
+            </div>
+        </div>-->
+
+
+        <div class="form-group">
+            <label class="col-sm-3 control-label">{{pagelabalObj.phoneNumber}}</label>
+            <div class="col-sm-6">
+                <input type="text"
+                       name="phoneNumber"
+                       ng-model="UserAddObj.phoneNumber"
+                       class="form-control"
+                       data-maxlength=20
+                       required
+                       placeholder="{{pagelabalObj.phoneNumber}}" />
+                <span class="requiredinput">*</span>
+                <p class="help-block"
+                   ng-show="form.UserAddObj.phoneNumber.$error.maxlength && form.UserAddObj.phoneNumber.$dirty">
+                    {{pagelabalObj.FielMaxlength}}
+                </p>
+                <span class="help-block"
+                      ng-show="form.UserAddObj.phoneNumber.$error.required && form.UserAddObj.phoneNumber.$dirty">
+                    {{pagelabalObj.FieldRequired}}
+                </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">{{pagelabalObj.Email}}</label>
+            <div class="col-sm-6">
+                <input type="email"
+                       name="email"
+                       required
+                       ng-model="UserAddObj.email"
+                       class="form-control"
+                       data-maxlength=250
+                       placeholder="{{pagelabalObj.Email}}" />
+                <span class="requiredinput">*</span>
+                <span class="help-block"
+                      ng-show="form.UserAddObj.email.$error.maxlength && form.UserAddObj.email.$dirty">
+                    {{pagelabalObj.FielMaxlength}}
+                </span>
+                <span class="help-block"
+                      ng-show="form.UserAddObj.email.$error.email && form.UserAddObj.email.$dirty">
+                    {{pagelabalObj.FieldEmail}}
+                </span>
+                <span class="help-block"
+                      ng-show="form.UserAddObj.email.$error.required && form.UserAddObj.email.$dirty">
+                    {{pagelabalObj.FieldRequired}}
+                </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">{{pagelabalObj.Password}}</label>
+            <div class="col-sm-6">
+                <input type="password"
+                       name="password"
+                       id="password"
+                       ng-model="UserAddObj.password"
+                       class="form-control"
+                       data-minlength=6
+                       required
+                       placeholder="{{pagelabalObj.Password}}" />
+                <span class="requiredinput">*</span>
+                <span class="help-block"
+                      ng-show="form.UserAddObj.password.$error.minlength && form.UserAddObj.password.$dirty">
+                    {{pagelabalObj.FielMinlength}} 6 أحرف
+                </span>
+                <span class="help-block"
+                      ng-show="form.UserAddObj.password.$error.required && form.UserAddObj.password.$dirty">
+                    {{pagelabalObj.FieldRequired}}
+                </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">{{pagelabalObj.ConfirmPassword}}</label>
+            <div class="col-sm-6">
+                <input type="password"
+                       name="confirmPassword"
+                       id="confirmPassword"
+                       ng-model="UserAddObj.confirmPassword"
+                       class="form-control"
+                       data-minlength=6
+                       required
+                       pw-check="password"
+                       placeholder="{{pagelabalObj.ConfirmPassword}}" />
+                <span class="requiredinput">*</span>
+                <span class="help-block"
+                      ng-show="form.UserAddObj.confirmPassword.$error.minlength && form.UserAddObj.confirmPassword.$dirty">
+                    {{pagelabalObj.FielMinlength}} 6 أحرف
+                </span>
+                <span class="help-block"
+                      ng-show="form.UserAddObj.confirmPassword.$error.required && form.UserAddObj.confirmPassword.$dirty">
+                    {{pagelabalObj.FieldRequired}}
+                </span>
+                <span class="help-block"
+                      ng-show="form.UserAddObj.confirmPassword.$error.pwmatch && form.UserAddObj.confirmPassword.$dirty">
+
+                    {{pagelabalObj.ConfirmPasswordMath}}
+                </span>
+            </div>
+        </div>
+    </form>
+    <div class="panel-footer">
+        <div class="row">
+            <div class="col-sm-6 col-sm-offset-3">
+                <div class="btn-toolbar">
+                    <button class="btn btn-success" ng-click="eventAddUser()" ng-disabled="!canSubmitValidationAddForm()">{{pagelabalObj.Save}} </button>
+                    <button class="btn btn-default" ng-click="eventCloseForm()">{{pagelabalObj.Cancel}} </button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</panel>

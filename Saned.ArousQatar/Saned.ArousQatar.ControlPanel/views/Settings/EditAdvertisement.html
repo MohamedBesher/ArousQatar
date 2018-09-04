@@ -1,0 +1,242 @@
+﻿<panel panel-class="panel-primary" heading="{{pagelabalObj.EditDivTitle}}">
+    <panel-controls>
+        <panel-control-collapse></panel-control-collapse>
+        
+        <!--<button class="button-icon"><i class="glyphicon glyphicon-cog"></i></button>
+        <button class="button-icon"><i class="glyphicon glyphicon-wrench"></i></button>-->
+    </panel-controls>
+<p>{{pagelabalObj.RequireNote}}</p>
+    
+<div flow-init="{singleFile:true}"
+     flow-file-added="!!{png:1,gif:1,jpg:1,jpeg:1}[$file.getExtension()]">
+
+<form class="form-horizontal row-border" name="form.AdvertisementEditObj">
+<div class="form-group">
+        
+    <label class="col-sm-3 control-label">{{pagelabalObj.Name}} (*)</label>
+    <div class="col-sm-6">
+        <input type="text"
+               name="name"
+               ng-model="AdvertisementEditObj.name"
+               class="form-control"
+               data-maxlength=50
+               required
+               placeholder="{{pagelabalObj.Name}}"/>
+        <span class="help-block"
+              ng-show="form.AdvertisementEditObj.name.$error.maxlength && form.AdvertisementEditObj.name.$dirty">
+            {{pagelabalObj.FielMaxlength}}
+        </span>
+        <span class="help-block"
+              ng-show="form.AdvertisementEditObj.name.$error.required && form.AdvertisementEditObj.name.$dirty">
+            {{pagelabalObj.FieldRequired}}
+        </span>
+    </div>
+</div>
+    <div class="form-group">
+
+        <label class="col-sm-3 control-label">سعر المنتج (*)</label>
+        <div class="col-sm-6">
+            <input type="number"
+                   name="cost"
+                   ng-model="AdvertisementEditObj.cost"
+                   class="form-control"                   
+                   required
+                   placeholder="{{pagelabalObj.cost}}" />
+            <span class="help-block"
+                  ng-show="form.AdvertisementEditObj.cost.$error.number && form.AdvertisementEditObj.cost.$dirty">
+                ارقام فقط
+            </span>
+            <span class="help-block"
+                  ng-show="form.AdvertisementEditObj.cost.$error.required && form.AdvertisementEditObj.cost.$dirty">
+                {{pagelabalObj.FieldRequired}}
+            </span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label">{{pagelabalObj.Description}}</label>
+
+        <div class="col-sm-6">
+            <input type="text"
+                   name="description"
+                   ng-model="AdvertisementEditObj.description"
+                   class="form-control"
+                   data-maxlength=200
+                   placeholder="{{pagelabalObj.Description}}"/>
+            <span class="help-block"
+                  ng-show="form.AdvertisementEditObj.description.$error.maxlength && form.AdvertisementEditObj.description.$dirty">
+                {{pagelabalObj.FielMaxlength}}
+            </span>
+            <span class="help-block"
+                  ng-show="form.AdvertisementEditObj.description.$error.required && form.AdvertisementEditObj.description.$dirty">
+                {{pagelabalObj.FieldRequired}}
+            </span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label">{{pagelabalObj.ChooseCategory}} (*)</label>
+        <div class="col-sm-6">
+            <select ng-model="AdvertisementEditObj.categoryId"
+                    name="cityId" required=""
+                    placeholder="{{pagelabalObj.ChooseCategory}}"
+                    class="col-xs-6 form-control">
+                <option ng-repeat="Category in Categories" value="{{Category.id}}">{{Category.name}}</option>
+            </select>
+            <span class="help-block"
+                  ng-show="form.AdvertisementEditObj.categoryId.$error.required && form.AdvertisementEditObj.categoryId.$dirty">
+                {{pagelabalObj.FieldRequired}}
+            </span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label">{{pagelabalObj.IsPaided}} (*)</label>
+        <div class="col-sm-6">
+            <select ng-model="AdvertisementEditObj.isPaided"
+                    name="isPaided" required=""
+                    placeholder=""
+                    class="col-xs-6 form-control" ng-change="ChangePaidedMethod();"  ng-disabled="AdvertisementEditObj.isPaided">
+
+                <option value="1">نعم</option>
+                <option value="0">لا</option>
+            </select>
+            <span class="help-block"
+                  ng-show="form.AdvertisementEditObj.isPaided.$error.required && form.AdvertisementEditObj.isPaided.$dirty">
+                {{pagelabalObj.FieldRequired}}
+            </span>
+        </div>
+    </div>
+
+    <div class="form-group" ng-hide="hideIsPaid">
+        <label class="col-sm-3 control-label">{{pagelabalObj.ChooseAdvertismentPrice}} (*)</label>
+        <div class="col-sm-6">
+            <select ng-model="AdvertisementEditObj.advertismentPriceId"
+                    ng-change="advertismentPriceIdChanged()"
+                    name="cityId"
+                    placeholder="{{pagelabalObj.ChooseAdvertismentPrice}}"
+                    ng-required='AdvertisementEditObj.isPaided==1'
+                    class="col-xs-6 form-control" ng-disabled="AdvertisementEditObj.isPaided">
+                <option ng-repeat="adPrice in AdvertismentPrice" value="{{adPrice.id}}">{{adPrice.period}}</option>
+            </select>
+            <span class="help-block"
+                  ng-show="form.AdvertisementEditObj.advertismentPriceId.$error.required && form.AdvertisementEditObj.advertismentPriceId.$dirty">
+                {{pagelabalObj.FieldRequired}}
+            </span>
+        </div>
+    </div>
+    <!--start date-->
+    <div class="form-group"  ng-hide="hideIsPaid">
+        <label class="col-sm-3 control-label">{{pagelabalObj.startDate}}</label>
+        <div class="col-sm-6">
+            <input type="date" ng-model="AdvertisementEditObj.startDate" class="col-xs-6 form-control"
+                   name="startDate" ng-change="startDateChanged()" ng-disabled="AdvertisementEditObj.isPaided"/>
+        </div>
+    </div>
+    <div class="form-group"  ng-hide="hideIsPaid">
+        <label class="col-sm-3 control-label">{{pagelabalObj.endDate}}</label>
+        <div class="col-sm-6">
+
+            <input type="date" ng-disabled="!hideIsPaid"
+                   ng-model="AdvertisementEditObj.endDate"
+                   class="col-xs-6 form-control"
+                   name="endDate"/>
+            <span class="help-block"
+                  ng-show="form.AdvertisementEditObj.endDate.$error.endBeforeStart && form.AdvertisementEditObj.endDate.$dirty">
+                تاريخ انتهاء الاعلان يجب ان يكون فى يوم لاحق لبداية الاعلان
+            </span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label">{{pagelabalObj.PaidEdPrice}} (*)</label>
+        <div class="col-sm-6">
+            <input type="number"
+                   name="PaidEdPrice"
+                   ng-model="AdvertisementEditObj.paidEdPrice"
+                   class="form-control"
+                   min="0"
+                   max="999999"
+                   required
+                   placeholder="{{pagelabalObj.PaidEdPrice}}" ng-disabled="AdvertisementEditObj.isPaided"/>
+            <span class="help-block"
+                  ng-show="form.AdvertisementEditObj.paidEdPrice.$error.required && form.AdvertisementEditObj.paidEdPrice.$dirty">
+                {{pagelabalObj.FieldRequired}}
+            </span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label">{{pagelabalObj.IsActive}} (*)</label>
+        <div class="col-sm-6">
+            <input type="checkbox" ng-model="AdvertisementEditObj.isActive" name="isActive">
+            <span class="help-block"
+                  ng-show="form.AdvertisementEditObj.isActive.$error.required && form.AdvertisementEditObj.isActive.$dirty">
+                {{pagelabalObj.FieldRequired}}
+            </span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label">{{pagelabalObj.ImageUrl}}</label>
+        <div class="col-sm-6">
+            <!--<input type="file"
+                       ng-model="AdvertisementEditObj.Image"
+                       base-sixty-four-input
+                       maxsize="50000000"
+                       accept="image/*">
+            <span class="help-block"
+                  ng-show="form.AdvertisementEditObj.imageUrl.$error.required && form.AdvertisementEditObj.imageUrl.$dirty">
+                {{pagelabalObj.FieldRequired}}
+            </span>-->
+        </div>
+        <div class="col-sm-9">
+
+                    <!--Image-->
+                    <!--track by $index-->
+                    <div ng-repeat="image in AdvertisementEditObj.imagesList track by $index" class="col-md-3 col-xs-6">
+                        <h1>{{imagesList[0][key].imageUrl}} </h1>  
+                        <label>{{key}}</label>
+                        <label>{{value}}</label>
+                       
+                       
+                        <img class="img-responsive img-thumbnail"
+                             style="width: 80%; margin-bottom: 30px;height: 100px"
+                             data-ng-src="{{image.upload != null ? 'data:image/jpeg;base64,'+ image.upload.base64 : 'http://arousqatar.saned-projects.com/uploads/'+ image.imageUrl}}" onerror="this.src = '../../assets/img/No_image_available.jpg'" />
+
+
+                        
+
+                        
+                        <input type="file"
+                               ng-model="image.upload"
+                               base-sixty-four-input
+                               maxsize="50000000"
+                               accept="image/*">
+
+
+                    </div>
+
+
+
+            <ul>
+
+
+
+            </ul>
+
+
+
+
+
+
+        </div>
+
+    </div>
+</form>
+<div class="panel-footer">
+    <div class="row">
+        <div class="col-sm-6 col-sm-offset-3">
+            <div class="btn-toolbar">
+                <button class="btn btn-success" ng-click="eventEditAdvertisement($flow)" ng-disabled="!canSubmitValidationEditForm()">{{pagelabalObj.Save}} </button>
+                <button class="btn btn-default" ng-click="eventCloseForm()">{{pagelabalObj.Cancel}} </button>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</panel>

@@ -1,0 +1,51 @@
+::selection {
+  background: #9a0c31;
+  color: #f8f8f8; }
+
+body {
+  font-family: "Cairo Regular";
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#bb0f43+0,9a0c31+100 */
+  background: #bb0f43;
+  /* Old browsers */
+  background: -moz-linear-gradient(top, #bb0f43 0%, #9a0c31 100%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #bb0f43 0%, #9a0c31 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #bb0f43 0%, #9a0c31 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$second-color', endColorstr='$primary-color',GradientType=0 );
+  /* IE6-9 */
+  min-height: 100vh;
+  padding: 3em;
+  line-height: 1.5em; }
+
+.logo {
+  width: 150px;
+  margin: 0 auto 2em;
+  display: block; }
+
+.content {
+  background: #f8f8f8;
+  padding: 2em 1em;
+  border-radius: 20px;
+  overflow: hidden; }
+
+.content img {
+  width: 100%; }
+
+.download {
+  text-align: center;
+  margin-top: 2em; }
+
+.download img {
+  width: 200px; }
+
+h3 {
+  font-weight: bold; }
+
+h4 {
+  color: #9a0c31;
+  font-weight: bold;
+  margin-top: 1em; }
+
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a0f33b01ed2f455b8e375a8000bf4ebb" Name="Diagram1">
+        <EntityTypeShape EntityType="Saned_ArousQatarModel.AdvertismentImage" Width="1.5" PointX="5.25" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Saned_ArousQatarModel.AdvertismentPrice" Width="1.5" PointX="0.75" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Saned_ArousQatarModel.Advertisment" Width="1.5" PointX="3" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Saned_ArousQatarModel.BankAccount" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Saned_ArousQatarModel.Category" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Saned_ArousQatarModel.Client" Width="1.5" PointX="7.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Saned_ArousQatarModel.Comment" Width="1.5" PointX="5.25" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Saned_ArousQatarModel.Complaint" Width="1.5" PointX="5.25" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Saned_ArousQatarModel.ContactInformation" Width="1.5" PointX="10" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Saned_ArousQatarModel.ContactType" Width="1.5" PointX="7.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Saned_ArousQatarModel.EmailSetting" Width="1.5" PointX="7.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Saned_ArousQatarModel.Error" Width="1.5" PointX="9.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Saned_ArousQatarModel.Favorite" Width="1.5" PointX="5.25" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Saned_ArousQatarModel.Like" Width="1.5" PointX="5.25" PointY="12.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Saned_ArousQatarModel.RefreshToken" Width="1.5" PointX="9.75" PointY="6.75" IsExpanded="true" />
+        <AssociationConnector Association="Saned_ArousQatarModel.FK_dbo_AdvertismentImages_dbo_Advertisments_AdvertismentId" ManuallyRouted="false" />
+        <AssociationConnector Association="Saned_ArousQatarModel.FK_dbo_Advertisments_dbo_AdvertismentPrices_AdvertismentPriceId" ManuallyRouted="false" />
+        <AssociationConnector Association="Saned_ArousQatarModel.FK_dbo_Advertisments_dbo_Categories_CategoryId" ManuallyRouted="false" />
+        <AssociationConnector Association="Saned_ArousQatarModel.FK_dbo_Comments_dbo_Advertisments_AdvertismentId" ManuallyRouted="false" />
+        <AssociationConnector Association="Saned_ArousQatarModel.FK_dbo_Complaints_dbo_Advertisments_AdvertismentId" ManuallyRouted="false" />
+        <AssociationConnector Association="Saned_ArousQatarModel.FK_dbo_Favorites_dbo_Advertisments_AdvertismentId" ManuallyRouted="false" />
+        <AssociationConnector Association="Saned_ArousQatarModel.FK_dbo_Likes_dbo_Advertisments_AdvertismentId" ManuallyRouted="false" />
+        <AssociationConnector Association="Saned_ArousQatarModel.FK_dbo_ContactInformations_dbo_ContactTypes_ContactTypeId" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

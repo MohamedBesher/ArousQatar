@@ -1,0 +1,97 @@
+﻿
+<div class="container-fluid" ng-controller="appsettingController">
+
+    <panel panel-class="panel-midnightblue" heading="تغير الإعدادات">
+        <panel-controls>
+            <panel-control-collapse></panel-control-collapse>
+            <button class="button-icon"><i class="glyphicon glyphicon-cog"></i></button>
+            <button class="button-icon"><i class="glyphicon glyphicon-wrench"></i></button>
+        </panel-controls>
+        <p>جميع هذه التغيرات سوف تأثر على التطبيق</p>
+        <form class="form-horizontal row-border" name="form.validateSettingForm">
+            <div class="form-group">
+                <label class="col-sm-3 control-label">عدد الرحلات غير المدفوعة قبل غلق الحساب </label>
+                <div class="col-sm-6">
+                    <input name="txtNumberOfTrip"
+                           type="number"
+                           data-min="1"
+                           placeholder="أرقام فقط"
+                           required
+                           ng-model="validateSettingForm.numberOfTripBeforeDiscountFromBalance"
+                           class="form-control">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">نسبة الخصم من كل رحلة </label>
+                <div class="col-sm-6">
+                    <input name="txtDiscountPrecent"
+                           type="number"
+                           data-min=1
+                           data-max=99
+                           placeholder="أرقام فقط"
+                           required
+                           ng-model="validateSettingForm.disCountPrecent"
+                           class="form-control">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">يجب الموافقة قبل التسجيل</label>
+                <div class="col-sm-6">
+                    <div class="checkbox">
+                        <label>
+                            <input icheck
+                                   type="checkbox"
+                                   name="isRequireApproveInRegister"
+                                   id="isRequireApproveInRegister"
+                                   ng-model="validateSettingForm.isRequireApproveInRegister">
+
+                        </label>
+                    </div>
+
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">يجب الموافقة على إضافة رحلة عند التسجيل</label>
+                <div class="col-sm-6">
+                    <div class="checkbox">
+                        <label>
+                            <input icheck
+                                   type="checkbox"
+                                   name="IApproveToAddTripInRegister"
+                                   id="IApproveToAddTripInRegister"
+                                   ng-model="validateSettingForm.isRequireApproveToAddTripInRegister">
+
+                        </label>
+                    </div>
+
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">التحقق من الرصيد  قبل إضافة رحلة</label>
+                <div class="col-sm-6">
+                    <div class="checkbox">
+                        <label>
+                            <input icheck
+                                   type="checkbox"
+                                   name="IsCheckBalanceBeforeAddTrip"
+                                   id="IsCheckBalanceBeforeAddTrip"
+                                   ng-model="validateSettingForm.isRequireCheckBalanceBeforeAddTrip">
+
+                        </label>
+                    </div>
+
+                </div>
+            </div>
+        </form>
+        <div class="panel-footer">
+            <div class="row">
+                <div class="col-sm-6 col-sm-offset-3">
+                    <div class="btn-toolbar">
+                        <button  class="btn-primary btn" ng-click="submitValidationForm()" ng-disabled="!canSubmitValidationForm()">تعديل</button>
+                        <button class="btn-default btn" ng-click="resetValidationForm()" ng-disabled="!canResetValidationForm()">إعادة تعبئة</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </panel>
+</div>

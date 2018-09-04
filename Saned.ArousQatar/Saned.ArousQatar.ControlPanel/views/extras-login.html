@@ -1,0 +1,42 @@
+﻿
+<div class="verticalcenter" ng-controller="loginController">
+    <a href="#/"><img src="assets/img/appimg/logo.png" alt="Logo" class="brand" /></a>
+    <div class="panel panel-primary">
+        <div class="panel-body">
+            <h4 class="text-center" style="margin-bottom: 25px;">تسجيل الدخول إلي لوحة التحكم</h4>
+
+
+            <form name="form.validateLoginForm" class="form-horizontal">
+                <div ng-show="showerror" class="alert alert-danger">{{message}}</div>
+                <div class="form-group">
+                    <label for="username" class="control-label col-sm-4" style="text-align: left;">اسم المستخدم</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="username" placeholder="اسم المستخدم" name="username" data-ng-model="loginData.userName" required>
+                        <span class="help-block" ng-show="form.validateLoginForm.username.$error.required && form.validateLoginForm.username.$dirty">اسم المستخدم مطلوب</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="password" class="control-label col-sm-4" style="text-align: left;">كلمة السر</label>
+                    <div class="col-sm-8">
+                        <input type="password" class="form-control" id="password" name="password" placeholder="كلمة السر" data-ng-model="loginData.password" required>
+                        <span class="help-block" ng-show="form.validateLoginForm.password.$dirty && form.validateLoginForm.password.$error.required">كلمة المرور مطلوبة</span>
+                    </div>
+                </div>
+                <div class="clearfix">
+                    <div class="pull-right">
+                        <label><input type="checkbox" data-ng-model="loginData.useRefreshTokens"> تذكرني</label>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block" ng-click="login()" ng-disabled="!canSubmitValidationForm()">تسجيل الدخول</button>
+
+            </form>
+        </div>
+        <div class="panel-footer">
+            <!--<a href="#/" class="pull-left btn btn-link" style="padding-left:0">Forgot password?</a>-->
+
+            <div class="pull-right">
+                <button ng-click="resetValidationForm()" ng-disabled="!canResetValidationForm()" class="btn btn-default">إعادة تعيين</button>
+            </div>
+        </div>
+    </div>
+</div>

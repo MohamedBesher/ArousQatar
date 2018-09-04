@@ -1,0 +1,217 @@
+﻿
+<panel panel-class="panel-primary" heading="{{pagelabalObj.ViewDivTitle}}">
+    <panel-controls>
+        <panel-control-collapse></panel-control-collapse>
+        <!--<button class="button-icon"><i class="glyphicon glyphicon-cog"></i></button>
+        <button class="button-icon"><i class="glyphicon glyphicon-wrench"></i></button>-->
+    </panel-controls>
+
+    <form class="form-horizontal row-border" name="form.UserAddObj">
+        <div class="form-group">
+            <label class="col-sm-3 control-label">{{pagelabalObj.Name}}</label>
+            <div class="col-sm-6">
+                <label type="text"
+                       name="name"
+                       class="control-label">
+                    {{ UserInfo.Name}}
+                </label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">{{pagelabalObj.UserName}}</label>
+            <div class="col-sm-6">
+                <label type="text"
+                       name="name"
+                       class="control-label">
+                    {{ UserInfo.UserName}}
+                </label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">{{pagelabalObj.Email}}</label>
+            <div class="col-sm-6">
+                <label type="text"
+                       name="name"
+                       class="control-label">
+                    {{UserInfo.Email== null?"غير محدد":UserInfo.Email}}
+                </label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">{{pagelabalObj.Mobile}}</label>
+            <div class="col-sm-6">
+                <label type="text"
+                       name="name"
+                       class="control-label">
+                    {{UserInfo.PhoneNumber== null?"غير محدد":UserInfo.PhoneNumber}}
+                </label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">{{pagelabalObj.City}}</label>
+            <div class="col-sm-6">
+                <label type="text"
+                       name="name"
+                       class="control-label">
+
+                    {{UserInfo.City== null?"غير محدد":UserInfo.City}}
+                </label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">{{pagelabalObj.City}}</label>
+            <div class="col-sm-6">
+                <label type="text"
+                       name="name"
+                       class="control-label">
+                    {{UserInfo.Gender== true?"أنثي":(UserInfo.Gender== null? "غير محدد":"ذكر")}}
+                </label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">{{pagelabalObj.IsApprove}}</label>
+            <div class="col-sm-6">
+                <label type="text"
+                       name="name"
+                       class="control-label">
+                    {{UserInfo.IsApprove== true?"تمت الموافقة":(UserInfo.IsApprove== null? "غير محدد":"لم تتم الموافقة")}}
+
+                </label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">{{pagelabalObj.LoginProvider}}</label>
+            <div class="col-sm-6">
+                <label type="text"
+                       name="name"
+                       class="control-label">
+                    {{UserInfo.LoginProvider== null?" البريد الإلكتروني ":UserInfo.LoginProvider}}
+
+                </label>
+            </div>
+        </div>
+       
+         <div class="form-group">
+            <label class="col-sm-3 control-label">{{pagelabalObj.AnimalCount}}</label>
+            <div class="col-sm-6">
+                <label type="text"
+                       name="name"
+                       class="control-label">
+                    {{UserInfo.AnimalCount== 0?" لا يوجد ":UserInfo.AnimalCount}}
+
+                </label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">{{pagelabalObj.ReportFromCount}}</label>
+            <div class="col-sm-6">
+                <label type="text"
+                       name="name"
+                       class="control-label">
+                    {{UserInfo.ReportFromCount== 0?" لا يوجد ":UserInfo.ReportFromCount}}
+
+                </label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">{{pagelabalObj.ReportTo}}</label>
+            <div class="col-sm-6">
+                <label type="text"
+                       name="name"
+                       class="control-label">
+                    {{UserInfo.ReportTo== 0?" لا يوجد ":UserInfo.ReportTo}}
+
+                </label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-3 control-label">{{pagelabalObj.ChatSenderCount}}</label>
+            <div class="col-sm-6">
+                <label type="text"
+                       name="name"
+                       class="control-label">
+                    {{UserInfo.ChatSenderCount== 0?" لا يوجد ":UserInfo.ChatSenderCount}}
+
+                </label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">{{pagelabalObj.ChatRecieverCount}}</label>
+            <div class="col-sm-6">
+                <label type="text"
+                       name="name"
+                       class="control-label">
+                    {{UserInfo.ChatRecieverCount== 0?" لا يوجد ":UserInfo.ChatRecieverCount}}
+
+                </label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-3 control-label">{{pagelabalObj.CommentCount}}</label>
+            <div class="col-sm-6">
+                <label type="text"
+                       name="name"
+                       class="control-label">
+                    {{UserInfo.CommentCount== 0?" لا يوجد ":UserInfo.CommentCount}}
+
+                </label>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label class="col-sm-3 control-label">{{pagelabalObj.GiveUpRequestsCount}}</label>
+            <div class="col-sm-6">
+                <label type="text"
+                       name="name"
+                       class="control-label">
+                    {{UserInfo.GiveUpRequestsCount== 0?" لا يوجد ":UserInfo.GiveUpRequestsCount}}
+
+                </label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">{{pagelabalObj.MessagesCount}}</label>
+            <div class="col-sm-6">
+                <label type="text"
+                       name="name"
+                       class="control-label">
+                    {{UserInfo.MessagesCount== 0?" لا يوجد ":UserInfo.MessagesCount}}
+                </label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">{{pagelabalObj.SucessStoryCount}}</label>
+            <div class="col-sm-6">
+                <label type="text"
+                       name="name"
+                       class="control-label">
+                    {{UserInfo.SucessStoryCount== 0?" لا يوجد ":UserInfo.SucessStoryCount}}
+                </label>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label class="col-sm-3 control-label">{{pagelabalObj.VolunteerCount}}</label>
+            <div class="col-sm-6">
+                <label type="text"
+                       name="name"
+                       class="control-label">
+                    {{UserInfo.VolunteerCount== 0?" لا يوجد ":UserInfo.VolunteerCount}}
+                </label>
+            </div>
+        </div>
+    </form>
+    <div class="panel-footer">
+        <div class="row">
+            <div class="col-sm-6 col-sm-offset-3">
+                <div class="btn-toolbar">
+
+                    <button class="btn btn-default" ng-click="eventCloseForm()">{{pagelabalObj.Close}} </button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</panel>

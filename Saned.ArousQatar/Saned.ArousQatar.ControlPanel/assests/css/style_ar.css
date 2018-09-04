@@ -1,0 +1,364 @@
+﻿@font-face {
+    font-family: 'Kufi';
+    src: url('../fonts/DroidKufi-Regular.eot');
+    src: url('../fonts/DroidKufi-Regular.eot?#iefix') format('embedded-opentype'),
+		 url('../fonts/DroidKufi-Regular.woff') format('woff'),
+		 url('../fonts/DroidKufi-Regular.ttf') format('truetype')
+}
+
+body {
+    direction: rtl;
+    font-family: 'kufi',Tahoma;
+    overflow-x: hidden;
+}
+
+.btn,
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6,
+p,
+span {
+    font-family: 'kufi',Tahoma;
+}
+
+
+.pull-left {
+    float: right !important;
+}
+.pull-right {
+    float: left !important;
+}
+
+/*navbar*/
+body.navbar-midnightblue #topnav #leftmenu-trigger {
+    border-left: 1px solid #273038;
+}
+
+header #leftmenu-trigger {
+    border-left: 1px solid #f2f2f2;
+}
+
+#leftmenu-trigger {
+    background-position: 0 0;
+    float: right;
+}
+
+.navbar-brand {
+    float: right;
+}
+
+#search-inline .search {
+    margin: 9px 0px 9px 10px;
+}
+
+#search-inline input {
+    padding-right: 25px;
+}
+
+.navbar-nav {
+    float: right;
+}
+
+#rightmenu-trigger {
+    float: left;
+}
+
+.navbar-nav.pull-right > li > .dropdown-menu, 
+.navbar-nav > li > .dropdown-menu.pull-right {
+    left: 0;
+    right: auto;
+}
+
+.dropdown-menu.arrow:before {
+    right: inherit;
+    left: 15px;
+}
+
+.dropdown-menu.notifications li.dd-header span:first-child, .dropdown-menu.messages li.dd-header span:first-child {
+    float: right !important;
+}
+
+.dropdown-menu.notifications li.dd-header span:last-child, 
+.dropdown-menu.messages li.dd-header span:last-child {
+    float: left !important;
+}
+
+.nano > .nano-content {
+    left: -17px;
+    right: 0 !important;
+}
+
+.dropdown-menu.notifications li a button.btn-mark-read, 
+.dropdown-menu.messages li a button.btn-mark-read, 
+.dropdown-menu.notifications li a button.btn-mark-unread, 
+.dropdown-menu.messages li a button.btn-mark-unread, 
+.dropdown-menu.notifications li a button, 
+.dropdown-menu.messages li a button {
+    float: left;
+}
+
+.dropdown-menu.notifications .scrollthis li .time {
+    float: left;
+}
+
+.dropdown-menu.notifications .scrollthis li a i {
+    float: right !important;
+    margin-left: 10px;
+}
+
+.dropdown-menu.notifications .scrollthis li a {
+    text-align: right;
+}
+
+.dropdown-menu.notifications li.dd-footer a, .dropdown-menu.messages li.dd-footer a {
+    text-align: left;
+}
+
+.dropdown-menu.messages li .time {
+    float: left;
+}
+
+.dropdown-menu.messages li a img {
+    float: right !important;
+    margin-left: 10px;
+}
+
+.dropdown-menu.messages li a div {
+    text-align: right;
+}
+
+.dropdown-menu.userinfo .userlinks ul li a {
+    text-align: right;
+}
+
+.infobar {
+    right: inherit;
+    left: 0;
+}
+
+.contextual-progress .progress-title {
+    float: right;
+}
+.contextual-progress .progress-percentage {
+    float: left;
+}
+
+.progress-bar {
+    float: right;
+}
+
+.chat-users span {
+    padding-right: 10px;
+}
+.chat-users li a:after {
+    float: left;
+    padding-left: 5px;
+}
+
+#sidebar {
+    padding: 0;
+}
+
+#search form .search-query {
+    padding: 0 50px 0 10px;
+}
+
+#search form button[type="submit"] i {
+    margin: 0 2px 0 0 !important;
+}
+
+#search form button[type="submit"] {
+    float: right;
+    right: 0px;
+    left: inherit;
+}
+
+#sidebar i {
+    margin-left: 18px;
+    margin-right: 0px;
+}
+
+#sidebar .badge {
+    float: left;
+    margin-left: 0px !important;
+    margin-right: 10px !important;
+}
+
+#sidebar .label {
+    margin-left: 10px;
+    float: left;
+}
+
+body.sidebar-collapsed .static-sidebar-wrapper #sidebar > li:hover > ul {
+    left: inherit;
+    right: 50px;
+}
+
+#page-heading h1 {
+    float: right;
+}
+
+.panel .panel-heading {
+    background-color: #37444e !important;
+    color: #fff !important;
+    border-radius: 0;
+}
+
+.panel .panel-heading h2, .panel .panel-heading .panel-title {
+    float: right;
+}
+
+.panel .panel-heading .panel-ctrls {
+    float: left;
+}
+
+.panel .panel-heading .panel-ctrls .button-icon {
+    float: left;
+}
+
+.mr10, .mr-sm {
+    margin-right: 0px !important;
+    margin-left: 10px !important;
+}
+
+.panel-tasks {
+    padding: 0;
+}
+.panel-tasks li {
+    padding: 0px 10px 0px 100px;
+}
+.panel-tasks li .task-container > span.label {
+    float: right;
+    margin-left: 10px;
+    margin-right: inherit;
+}
+
+.panel-tasks li .options {
+    left: 10px;
+    right: inherit;
+}
+
+.ng-binding {
+    margin-right: 10px;
+}
+
+#page-heading .options {
+    float: left;
+    left: 20px;
+    right: inherit;
+}
+
+.ng-binding {
+    margin-left: inherit;
+    margin-right: inherit;
+}
+
+.text-right {
+    text-align: left;
+}
+.text-left {
+    text-align: right;
+}
+
+#horizontal-navbar .navbar-nav i {
+    margin-left: 8px;
+    margin-right: inherit;
+}
+#horizontal-navbar:not(.large-icons-nav) .label {
+    top: auto;
+    position: inherit;
+    left: 0;
+    float: left;
+    margin-right: 10px;
+    margin-left: inherit;
+}
+#top-nav li > ul {
+    right: 0;
+    left: inherit;
+}
+
+.dropdown-menu {
+    left: 0;
+    right: auto;
+}
+
+.inbox-menu .inbox-menu-item span {
+    float: left;
+}
+
+.mr5, .mr-xs {
+    margin-left: 5px !important;
+}
+.panel-inbox-read .panel-body .inbox-read-details .inbox-read-sent-info {
+    float: right;
+}
+.panel-inbox-read .panel-body .inbox-read-details .btn-group {
+    float: left;
+}
+
+.col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12,
+.col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12,
+.col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12,
+.col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12 {
+    float: right;
+}
+
+.form-horizontal .control-label {
+    text-align: left !important;
+}
+
+.input-group-addon:first-child {
+    border-right: 1px solid #e0e0e0;
+    border-left: 0;
+}
+
+.input-group .form-control:first-child, 
+.input-group-addon:first-child, .input-group-btn:first-child > .btn, 
+.input-group-btn:first-child > .btn-group > .btn, 
+.input-group-btn:first-child > .dropdown-toggle, 
+.input-group-btn:last-child > .btn:not(:last-child):not(.dropdown-toggle), 
+.input-group-btn:last-child > .btn-group:not(:last-child) > .btn {
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+}
+
+.input-group .form-control:last-child, 
+.input-group-addon:last-child, 
+.input-group-btn:last-child > .btn, 
+.input-group-btn:last-child > .btn-group > .btn, 
+.input-group-btn:last-child > .dropdown-toggle, 
+.input-group-btn:first-child > .btn:not(:first-child), 
+.input-group-btn:first-child > .btn-group:not(:first-child) > .btn {
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+}
+
+
+.panel-group > .panel {
+    margin-bottom: 15px !important;
+}
+
+.panel .panel-heading h2, .panel .panel-heading .panel-title {
+    display: block;
+    width: 100%;
+    padding: 0;
+}
+
+    .panel .panel-heading h2 a,
+    .panel .panel-heading .panel-title a {
+        display: block;
+        width: 100%;
+        padding: 15px 0;
+        color: #fff;
+    }
+
+.panel-group .panel-heading a:after {
+    font-family: 'FontAwesome';
+    content: "\f107";
+    float: right;
+    color: #444;
+    font-size: 1.3em;
+    margin-left: 10px;
+}

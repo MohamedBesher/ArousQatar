@@ -1,0 +1,841 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Saned_ArousQatarModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AdvertismentImages">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IsMainImage" Type="bit" />
+          <Property Name="ImageUrl" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="AdvertismentId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AdvertismentPrices">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Period" Type="int" Nullable="false" />
+          <Property Name="Price" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Advertisments">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IsPaided" Type="bit" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="NumberOfViews" Type="int" Nullable="false" />
+          <Property Name="NumberOfLikes" Type="int" Nullable="false" />
+          <Property Name="PaidEdPrice" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="IsArchieved" Type="bit" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="StartDate" Type="datetime" Nullable="false" />
+          <Property Name="EndDate" Type="datetime" Nullable="false" />
+          <Property Name="CategoryId" Type="int" Nullable="false" />
+          <Property Name="ApplicationUserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="AdvertismentPriceId" Type="int" />
+        </EntityType>
+        <EntityType Name="BankAccounts">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BankNumber" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="BankName" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Categories">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="IsArchieved" Type="bit" />
+          <Property Name="IconName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ImageUrl" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Clients">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Secret" Type="nvarchar(max)" />
+          <Property Name="Name" Type="nvarchar(max)" />
+          <Property Name="ApplicationType" Type="int" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+          <Property Name="RefreshTokenLifeTime" Type="int" Nullable="false" />
+          <Property Name="AllowedOrigin" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Comments">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Message" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="AdvertismentId" Type="int" Nullable="false" />
+          <Property Name="ApplicationUserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Complaints">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Message" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ApplicationUserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="AdvertismentId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ContactInformations">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Contact" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="ContactTypeId" Type="int" Nullable="false" />
+          <Property Name="IconName" Type="nvarchar" MaxLength="70" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ContactTypes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Type" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EmailSettings">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Host" Type="nvarchar(max)" />
+          <Property Name="FromEmail" Type="nvarchar(max)" />
+          <Property Name="Password" Type="nvarchar(max)" />
+          <Property Name="SubjectAr" Type="nvarchar(max)" />
+          <Property Name="SubjectEn" Type="nvarchar(max)" />
+          <Property Name="MessageBodyAr" Type="nvarchar(max)" />
+          <Property Name="MessageBodyEn" Type="nvarchar(max)" />
+          <Property Name="EmailSettingType" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Errors">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Message" Type="nvarchar(max)" />
+          <Property Name="StackTrace" Type="nvarchar(max)" />
+          <Property Name="DateCreated" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Favorites">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ApplicationUserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="AdvertismentId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Likes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ApplicationUserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="AdvertismentId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RefreshTokens">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Subject" Type="nvarchar(max)" />
+          <Property Name="ClientId" Type="nvarchar(max)" />
+          <Property Name="IssuedUtc" Type="datetime" Nullable="false" />
+          <Property Name="ExpiresUtc" Type="datetime" Nullable="false" />
+          <Property Name="ProtectedTicket" Type="nvarchar(max)" />
+        </EntityType>
+        <Association Name="FK_dbo_AdvertismentImages_dbo_Advertisments_AdvertismentId">
+          <End Role="Advertisments" Type="Self.Advertisments" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AdvertismentImages" Type="Self.AdvertismentImages" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Advertisments">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AdvertismentImages">
+              <PropertyRef Name="AdvertismentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Advertisments_dbo_AdvertismentPrices_AdvertismentPriceId">
+          <End Role="AdvertismentPrices" Type="Self.AdvertismentPrices" Multiplicity="0..1" />
+          <End Role="Advertisments" Type="Self.Advertisments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AdvertismentPrices">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Advertisments">
+              <PropertyRef Name="AdvertismentPriceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Advertisments_dbo_Categories_CategoryId">
+          <End Role="Categories" Type="Self.Categories" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Advertisments" Type="Self.Advertisments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categories">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Advertisments">
+              <PropertyRef Name="CategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Comments_dbo_Advertisments_AdvertismentId">
+          <End Role="Advertisments" Type="Self.Advertisments" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Comments" Type="Self.Comments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Advertisments">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Comments">
+              <PropertyRef Name="AdvertismentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Complaints_dbo_Advertisments_AdvertismentId">
+          <End Role="Advertisments" Type="Self.Advertisments" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Complaints" Type="Self.Complaints" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Advertisments">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Complaints">
+              <PropertyRef Name="AdvertismentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_ContactInformations_dbo_ContactTypes_ContactTypeId">
+          <End Role="ContactTypes" Type="Self.ContactTypes" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ContactInformations" Type="Self.ContactInformations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ContactTypes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ContactInformations">
+              <PropertyRef Name="ContactTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Favorites_dbo_Advertisments_AdvertismentId">
+          <End Role="Advertisments" Type="Self.Advertisments" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Favorites" Type="Self.Favorites" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Advertisments">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Favorites">
+              <PropertyRef Name="AdvertismentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Likes_dbo_Advertisments_AdvertismentId">
+          <End Role="Advertisments" Type="Self.Advertisments" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Likes" Type="Self.Likes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Advertisments">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Likes">
+              <PropertyRef Name="AdvertismentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Saned_ArousQatarModelStoreContainer">
+          <EntitySet Name="AdvertismentImages" EntityType="Self.AdvertismentImages" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AdvertismentPrices" EntityType="Self.AdvertismentPrices" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Advertisments" EntityType="Self.Advertisments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BankAccounts" EntityType="Self.BankAccounts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Categories" EntityType="Self.Categories" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Clients" EntityType="Self.Clients" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Comments" EntityType="Self.Comments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Complaints" EntityType="Self.Complaints" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ContactInformations" EntityType="Self.ContactInformations" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ContactTypes" EntityType="Self.ContactTypes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EmailSettings" EntityType="Self.EmailSettings" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Errors" EntityType="Self.Errors" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Favorites" EntityType="Self.Favorites" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Likes" EntityType="Self.Likes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RefreshTokens" EntityType="Self.RefreshTokens" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_dbo_AdvertismentImages_dbo_Advertisments_AdvertismentId" Association="Self.FK_dbo_AdvertismentImages_dbo_Advertisments_AdvertismentId">
+            <End Role="Advertisments" EntitySet="Advertisments" />
+            <End Role="AdvertismentImages" EntitySet="AdvertismentImages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Advertisments_dbo_AdvertismentPrices_AdvertismentPriceId" Association="Self.FK_dbo_Advertisments_dbo_AdvertismentPrices_AdvertismentPriceId">
+            <End Role="AdvertismentPrices" EntitySet="AdvertismentPrices" />
+            <End Role="Advertisments" EntitySet="Advertisments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Advertisments_dbo_Categories_CategoryId" Association="Self.FK_dbo_Advertisments_dbo_Categories_CategoryId">
+            <End Role="Categories" EntitySet="Categories" />
+            <End Role="Advertisments" EntitySet="Advertisments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Comments_dbo_Advertisments_AdvertismentId" Association="Self.FK_dbo_Comments_dbo_Advertisments_AdvertismentId">
+            <End Role="Advertisments" EntitySet="Advertisments" />
+            <End Role="Comments" EntitySet="Comments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Complaints_dbo_Advertisments_AdvertismentId" Association="Self.FK_dbo_Complaints_dbo_Advertisments_AdvertismentId">
+            <End Role="Advertisments" EntitySet="Advertisments" />
+            <End Role="Complaints" EntitySet="Complaints" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_ContactInformations_dbo_ContactTypes_ContactTypeId" Association="Self.FK_dbo_ContactInformations_dbo_ContactTypes_ContactTypeId">
+            <End Role="ContactTypes" EntitySet="ContactTypes" />
+            <End Role="ContactInformations" EntitySet="ContactInformations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Favorites_dbo_Advertisments_AdvertismentId" Association="Self.FK_dbo_Favorites_dbo_Advertisments_AdvertismentId">
+            <End Role="Advertisments" EntitySet="Advertisments" />
+            <End Role="Favorites" EntitySet="Favorites" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Likes_dbo_Advertisments_AdvertismentId" Association="Self.FK_dbo_Likes_dbo_Advertisments_AdvertismentId">
+            <End Role="Advertisments" EntitySet="Advertisments" />
+            <End Role="Likes" EntitySet="Likes" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Saned_ArousQatarModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AdvertismentImage">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IsMainImage" Type="Boolean" />
+          <Property Name="ImageUrl" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AdvertismentId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Advertisment" Relationship="Self.FK_dbo_AdvertismentImages_dbo_Advertisments_AdvertismentId" FromRole="AdvertismentImages" ToRole="Advertisments" />
+        </EntityType>
+        <EntityType Name="AdvertismentPrice">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Period" Type="Int32" Nullable="false" />
+          <Property Name="Price" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <NavigationProperty Name="Advertisments" Relationship="Self.FK_dbo_Advertisments_dbo_AdvertismentPrices_AdvertismentPriceId" FromRole="AdvertismentPrices" ToRole="Advertisments" />
+        </EntityType>
+        <EntityType Name="Advertisment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IsPaided" Type="Boolean" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NumberOfViews" Type="Int32" Nullable="false" />
+          <Property Name="NumberOfLikes" Type="Int32" Nullable="false" />
+          <Property Name="PaidEdPrice" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="IsArchieved" Type="Boolean" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EndDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CategoryId" Type="Int32" Nullable="false" />
+          <Property Name="ApplicationUserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AdvertismentPriceId" Type="Int32" />
+          <NavigationProperty Name="AdvertismentImages" Relationship="Self.FK_dbo_AdvertismentImages_dbo_Advertisments_AdvertismentId" FromRole="Advertisments" ToRole="AdvertismentImages" />
+          <NavigationProperty Name="AdvertismentPrice" Relationship="Self.FK_dbo_Advertisments_dbo_AdvertismentPrices_AdvertismentPriceId" FromRole="Advertisments" ToRole="AdvertismentPrices" />
+          <NavigationProperty Name="Category" Relationship="Self.FK_dbo_Advertisments_dbo_Categories_CategoryId" FromRole="Advertisments" ToRole="Categories" />
+          <NavigationProperty Name="Comments" Relationship="Self.FK_dbo_Comments_dbo_Advertisments_AdvertismentId" FromRole="Advertisments" ToRole="Comments" />
+          <NavigationProperty Name="Complaints" Relationship="Self.FK_dbo_Complaints_dbo_Advertisments_AdvertismentId" FromRole="Advertisments" ToRole="Complaints" />
+          <NavigationProperty Name="Favorites" Relationship="Self.FK_dbo_Favorites_dbo_Advertisments_AdvertismentId" FromRole="Advertisments" ToRole="Favorites" />
+          <NavigationProperty Name="Likes" Relationship="Self.FK_dbo_Likes_dbo_Advertisments_AdvertismentId" FromRole="Advertisments" ToRole="Likes" />
+        </EntityType>
+        <EntityType Name="BankAccount">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BankNumber" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="BankName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IsArchieved" Type="Boolean" />
+          <Property Name="IconName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ImageUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Advertisments" Relationship="Self.FK_dbo_Advertisments_dbo_Categories_CategoryId" FromRole="Categories" ToRole="Advertisments" />
+        </EntityType>
+        <EntityType Name="Client">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Secret" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ApplicationType" Type="Int32" Nullable="false" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <Property Name="RefreshTokenLifeTime" Type="Int32" Nullable="false" />
+          <Property Name="AllowedOrigin" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Comment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Message" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="AdvertismentId" Type="Int32" Nullable="false" />
+          <Property Name="ApplicationUserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Advertisment" Relationship="Self.FK_dbo_Comments_dbo_Advertisments_AdvertismentId" FromRole="Comments" ToRole="Advertisments" />
+        </EntityType>
+        <EntityType Name="Complaint">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Message" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ApplicationUserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AdvertismentId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Advertisment" Relationship="Self.FK_dbo_Complaints_dbo_Advertisments_AdvertismentId" FromRole="Complaints" ToRole="Advertisments" />
+        </EntityType>
+        <EntityType Name="ContactInformation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Contact" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ContactTypeId" Type="Int32" Nullable="false" />
+          <Property Name="IconName" Type="String" MaxLength="70" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="ContactType" Relationship="Self.FK_dbo_ContactInformations_dbo_ContactTypes_ContactTypeId" FromRole="ContactInformations" ToRole="ContactTypes" />
+        </EntityType>
+        <EntityType Name="ContactType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="ContactInformations" Relationship="Self.FK_dbo_ContactInformations_dbo_ContactTypes_ContactTypeId" FromRole="ContactTypes" ToRole="ContactInformations" />
+        </EntityType>
+        <EntityType Name="EmailSetting">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Host" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FromEmail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SubjectAr" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SubjectEn" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MessageBodyAr" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MessageBodyEn" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EmailSettingType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Error">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Message" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="StackTrace" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="Favorite">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ApplicationUserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AdvertismentId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Advertisment" Relationship="Self.FK_dbo_Favorites_dbo_Advertisments_AdvertismentId" FromRole="Favorites" ToRole="Advertisments" />
+        </EntityType>
+        <EntityType Name="Like">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ApplicationUserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AdvertismentId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Advertisment" Relationship="Self.FK_dbo_Likes_dbo_Advertisments_AdvertismentId" FromRole="Likes" ToRole="Advertisments" />
+        </EntityType>
+        <EntityType Name="RefreshToken">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Subject" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ClientId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IssuedUtc" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ExpiresUtc" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ProtectedTicket" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_dbo_AdvertismentImages_dbo_Advertisments_AdvertismentId">
+          <End Role="Advertisments" Type="Self.Advertisment" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AdvertismentImages" Type="Self.AdvertismentImage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Advertisments">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AdvertismentImages">
+              <PropertyRef Name="AdvertismentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Advertisments_dbo_AdvertismentPrices_AdvertismentPriceId">
+          <End Role="AdvertismentPrices" Type="Self.AdvertismentPrice" Multiplicity="0..1" />
+          <End Role="Advertisments" Type="Self.Advertisment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AdvertismentPrices">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Advertisments">
+              <PropertyRef Name="AdvertismentPriceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Advertisments_dbo_Categories_CategoryId">
+          <End Role="Categories" Type="Self.Category" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Advertisments" Type="Self.Advertisment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categories">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Advertisments">
+              <PropertyRef Name="CategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Comments_dbo_Advertisments_AdvertismentId">
+          <End Role="Advertisments" Type="Self.Advertisment" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Comments" Type="Self.Comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Advertisments">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Comments">
+              <PropertyRef Name="AdvertismentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Complaints_dbo_Advertisments_AdvertismentId">
+          <End Role="Advertisments" Type="Self.Advertisment" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Complaints" Type="Self.Complaint" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Advertisments">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Complaints">
+              <PropertyRef Name="AdvertismentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Favorites_dbo_Advertisments_AdvertismentId">
+          <End Role="Advertisments" Type="Self.Advertisment" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Favorites" Type="Self.Favorite" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Advertisments">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Favorites">
+              <PropertyRef Name="AdvertismentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Likes_dbo_Advertisments_AdvertismentId">
+          <End Role="Advertisments" Type="Self.Advertisment" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Likes" Type="Self.Like" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Advertisments">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Likes">
+              <PropertyRef Name="AdvertismentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_ContactInformations_dbo_ContactTypes_ContactTypeId">
+          <End Role="ContactTypes" Type="Self.ContactType" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ContactInformations" Type="Self.ContactInformation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ContactTypes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ContactInformations">
+              <PropertyRef Name="ContactTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Saned_ArousQatarEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AdvertismentImages" EntityType="Self.AdvertismentImage" />
+          <EntitySet Name="AdvertismentPrices" EntityType="Self.AdvertismentPrice" />
+          <EntitySet Name="Advertisments" EntityType="Self.Advertisment" />
+          <EntitySet Name="BankAccounts" EntityType="Self.BankAccount" />
+          <EntitySet Name="Categories" EntityType="Self.Category" />
+          <EntitySet Name="Clients" EntityType="Self.Client" />
+          <EntitySet Name="Comments" EntityType="Self.Comment" />
+          <EntitySet Name="Complaints" EntityType="Self.Complaint" />
+          <EntitySet Name="ContactInformations" EntityType="Self.ContactInformation" />
+          <EntitySet Name="ContactTypes" EntityType="Self.ContactType" />
+          <EntitySet Name="EmailSettings" EntityType="Self.EmailSetting" />
+          <EntitySet Name="Errors" EntityType="Self.Error" />
+          <EntitySet Name="Favorites" EntityType="Self.Favorite" />
+          <EntitySet Name="Likes" EntityType="Self.Like" />
+          <EntitySet Name="RefreshTokens" EntityType="Self.RefreshToken" />
+          <AssociationSet Name="FK_dbo_AdvertismentImages_dbo_Advertisments_AdvertismentId" Association="Self.FK_dbo_AdvertismentImages_dbo_Advertisments_AdvertismentId">
+            <End Role="Advertisments" EntitySet="Advertisments" />
+            <End Role="AdvertismentImages" EntitySet="AdvertismentImages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Advertisments_dbo_AdvertismentPrices_AdvertismentPriceId" Association="Self.FK_dbo_Advertisments_dbo_AdvertismentPrices_AdvertismentPriceId">
+            <End Role="AdvertismentPrices" EntitySet="AdvertismentPrices" />
+            <End Role="Advertisments" EntitySet="Advertisments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Advertisments_dbo_Categories_CategoryId" Association="Self.FK_dbo_Advertisments_dbo_Categories_CategoryId">
+            <End Role="Categories" EntitySet="Categories" />
+            <End Role="Advertisments" EntitySet="Advertisments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Comments_dbo_Advertisments_AdvertismentId" Association="Self.FK_dbo_Comments_dbo_Advertisments_AdvertismentId">
+            <End Role="Advertisments" EntitySet="Advertisments" />
+            <End Role="Comments" EntitySet="Comments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Complaints_dbo_Advertisments_AdvertismentId" Association="Self.FK_dbo_Complaints_dbo_Advertisments_AdvertismentId">
+            <End Role="Advertisments" EntitySet="Advertisments" />
+            <End Role="Complaints" EntitySet="Complaints" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Favorites_dbo_Advertisments_AdvertismentId" Association="Self.FK_dbo_Favorites_dbo_Advertisments_AdvertismentId">
+            <End Role="Advertisments" EntitySet="Advertisments" />
+            <End Role="Favorites" EntitySet="Favorites" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Likes_dbo_Advertisments_AdvertismentId" Association="Self.FK_dbo_Likes_dbo_Advertisments_AdvertismentId">
+            <End Role="Advertisments" EntitySet="Advertisments" />
+            <End Role="Likes" EntitySet="Likes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_ContactInformations_dbo_ContactTypes_ContactTypeId" Association="Self.FK_dbo_ContactInformations_dbo_ContactTypes_ContactTypeId">
+            <End Role="ContactTypes" EntitySet="ContactTypes" />
+            <End Role="ContactInformations" EntitySet="ContactInformations" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Saned_ArousQatarModelStoreContainer" CdmEntityContainer="Saned_ArousQatarEntities">
+          <EntitySetMapping Name="AdvertismentImages">
+            <EntityTypeMapping TypeName="Saned_ArousQatarModel.AdvertismentImage">
+              <MappingFragment StoreEntitySet="AdvertismentImages">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IsMainImage" ColumnName="IsMainImage" />
+                <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
+                <ScalarProperty Name="AdvertismentId" ColumnName="AdvertismentId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AdvertismentPrices">
+            <EntityTypeMapping TypeName="Saned_ArousQatarModel.AdvertismentPrice">
+              <MappingFragment StoreEntitySet="AdvertismentPrices">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Period" ColumnName="Period" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Advertisments">
+            <EntityTypeMapping TypeName="Saned_ArousQatarModel.Advertisment">
+              <MappingFragment StoreEntitySet="Advertisments">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IsPaided" ColumnName="IsPaided" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="NumberOfViews" ColumnName="NumberOfViews" />
+                <ScalarProperty Name="NumberOfLikes" ColumnName="NumberOfLikes" />
+                <ScalarProperty Name="PaidEdPrice" ColumnName="PaidEdPrice" />
+                <ScalarProperty Name="IsArchieved" ColumnName="IsArchieved" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+                <ScalarProperty Name="ApplicationUserId" ColumnName="ApplicationUserId" />
+                <ScalarProperty Name="AdvertismentPriceId" ColumnName="AdvertismentPriceId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BankAccounts">
+            <EntityTypeMapping TypeName="Saned_ArousQatarModel.BankAccount">
+              <MappingFragment StoreEntitySet="BankAccounts">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="BankNumber" ColumnName="BankNumber" />
+                <ScalarProperty Name="BankName" ColumnName="BankName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Categories">
+            <EntityTypeMapping TypeName="Saned_ArousQatarModel.Category">
+              <MappingFragment StoreEntitySet="Categories">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="IsArchieved" ColumnName="IsArchieved" />
+                <ScalarProperty Name="IconName" ColumnName="IconName" />
+                <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Clients">
+            <EntityTypeMapping TypeName="Saned_ArousQatarModel.Client">
+              <MappingFragment StoreEntitySet="Clients">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Secret" ColumnName="Secret" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ApplicationType" ColumnName="ApplicationType" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="RefreshTokenLifeTime" ColumnName="RefreshTokenLifeTime" />
+                <ScalarProperty Name="AllowedOrigin" ColumnName="AllowedOrigin" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Comments">
+            <EntityTypeMapping TypeName="Saned_ArousQatarModel.Comment">
+              <MappingFragment StoreEntitySet="Comments">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="AdvertismentId" ColumnName="AdvertismentId" />
+                <ScalarProperty Name="ApplicationUserId" ColumnName="ApplicationUserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Complaints">
+            <EntityTypeMapping TypeName="Saned_ArousQatarModel.Complaint">
+              <MappingFragment StoreEntitySet="Complaints">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="ApplicationUserId" ColumnName="ApplicationUserId" />
+                <ScalarProperty Name="AdvertismentId" ColumnName="AdvertismentId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ContactInformations">
+            <EntityTypeMapping TypeName="Saned_ArousQatarModel.ContactInformation">
+              <MappingFragment StoreEntitySet="ContactInformations">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Contact" ColumnName="Contact" />
+                <ScalarProperty Name="ContactTypeId" ColumnName="ContactTypeId" />
+                <ScalarProperty Name="IconName" ColumnName="IconName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ContactTypes">
+            <EntityTypeMapping TypeName="Saned_ArousQatarModel.ContactType">
+              <MappingFragment StoreEntitySet="ContactTypes">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmailSettings">
+            <EntityTypeMapping TypeName="Saned_ArousQatarModel.EmailSetting">
+              <MappingFragment StoreEntitySet="EmailSettings">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Host" ColumnName="Host" />
+                <ScalarProperty Name="FromEmail" ColumnName="FromEmail" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="SubjectAr" ColumnName="SubjectAr" />
+                <ScalarProperty Name="SubjectEn" ColumnName="SubjectEn" />
+                <ScalarProperty Name="MessageBodyAr" ColumnName="MessageBodyAr" />
+                <ScalarProperty Name="MessageBodyEn" ColumnName="MessageBodyEn" />
+                <ScalarProperty Name="EmailSettingType" ColumnName="EmailSettingType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Errors">
+            <EntityTypeMapping TypeName="Saned_ArousQatarModel.Error">
+              <MappingFragment StoreEntitySet="Errors">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="StackTrace" ColumnName="StackTrace" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Favorites">
+            <EntityTypeMapping TypeName="Saned_ArousQatarModel.Favorite">
+              <MappingFragment StoreEntitySet="Favorites">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ApplicationUserId" ColumnName="ApplicationUserId" />
+                <ScalarProperty Name="AdvertismentId" ColumnName="AdvertismentId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Likes">
+            <EntityTypeMapping TypeName="Saned_ArousQatarModel.Like">
+              <MappingFragment StoreEntitySet="Likes">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ApplicationUserId" ColumnName="ApplicationUserId" />
+                <ScalarProperty Name="AdvertismentId" ColumnName="AdvertismentId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RefreshTokens">
+            <EntityTypeMapping TypeName="Saned_ArousQatarModel.RefreshToken">
+              <MappingFragment StoreEntitySet="RefreshTokens">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="ClientId" ColumnName="ClientId" />
+                <ScalarProperty Name="IssuedUtc" ColumnName="IssuedUtc" />
+                <ScalarProperty Name="ExpiresUtc" ColumnName="ExpiresUtc" />
+                <ScalarProperty Name="ProtectedTicket" ColumnName="ProtectedTicket" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

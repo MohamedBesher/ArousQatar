@@ -1,0 +1,122 @@
+/**
+* Maverick (c) 2015
+* Ndevr Studios Ltd.
+*
+*/
+panel {
+    direction: rtl;
+}
+
+.dropdown-menu {
+    left: 0;
+    right: auto;
+}
+
+header #rightmenu-trigger {
+    border-left: none;
+}
+
+.pull-right {
+    float: left !important;
+}
+
+.pull-left {
+    float: right !important;
+}
+
+#layout-static {
+    direction: rtl;
+}
+
+
+.toolbar.navbar-nav {
+    margin: 0;
+    padding-left: 0;
+}
+
+#search form button[type="submit"] {
+    float: left;
+    position: absolute;
+    top: 0;
+    left: 0px;
+    border: 0;
+    background: none;
+    padding: 19px 0;
+    margin: 0;
+    min-width: 50px;
+    text-align: center;
+}
+
+body.navbar-midnightblue #topnav #search-inline input {
+    text-align: right;
+}
+
+.input-icon .glyphicon.search {
+    top: 1px;
+    right: 0;
+}
+
+body.sidebar-default #horizontal-navbar .navbar-nav > li ul {
+    background: #ededed;
+    text-align: right;
+}
+
+.col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12,
+.col-md-1, .col-md-2, .col-v-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12,
+.col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12,
+.col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-v-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12 {
+    float: right;
+}
+
+.requiredinput {
+    position: absolute;
+    top: 2px;
+    font-size: 2em;
+    left: -8px;
+    color: #b4270f;
+}
+
+.help-block {
+    color: #b4270f;
+}
+
+.row-border .form-group {
+    padding-bottom: 0px;
+}
+
+.modal {
+    text-align: right;
+}
+
+    .modal h3 {
+        margin: 0px;
+    }
+
+.modal-header {
+    padding: 15px;
+    border-bottom: 1px solid #e5e5e5;
+    min-height: 16.5px;
+    background-color: #2685ee;
+    color: #fff;
+}
+
+    .modal-header h5 {
+        color: #fff;
+    }
+
+.close {
+    float: left;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 1;
+    color: #ffffff;
+    text-shadow: 0 1px 0 #ffffff;
+    opacity: 1;
+    filter: alpha(opacity=20);
+}
+
+
+.ngGrid {
+    direction: rtl !important;
+    text-align: center;
+}

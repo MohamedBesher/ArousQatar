@@ -1,0 +1,9 @@
+E:\saned\ArousQatar\Saned.ArousQatar\UtiltyManagemnt\bin\Release\UtiltyManagemnt.dll
+E:\saned\ArousQatar\Saned.ArousQatar\UtiltyManagemnt\bin\Release\UtiltyManagemnt.pdb
+E:\saned\ArousQatar\Saned.ArousQatar\UtiltyManagemnt\bin\Release\EntityFramework.dll
+E:\saned\ArousQatar\Saned.ArousQatar\UtiltyManagemnt\bin\Release\EntityFramework.SqlServer.dll
+E:\saned\ArousQatar\Saned.ArousQatar\UtiltyManagemnt\bin\Release\EntityFramework.xml
+E:\saned\ArousQatar\Saned.ArousQatar\UtiltyManagemnt\bin\Release\EntityFramework.SqlServer.xml
+E:\saned\ArousQatar\Saned.ArousQatar\UtiltyManagemnt\obj\Release\UtiltyManagemnt.csprojResolveAssemblyReference.cache
+E:\saned\ArousQatar\Saned.ArousQatar\UtiltyManagemnt\obj\Release\UtiltyManagemnt.dll
+E:\saned\ArousQatar\Saned.ArousQatar\UtiltyManagemnt\obj\Release\UtiltyManagemnt.pdb

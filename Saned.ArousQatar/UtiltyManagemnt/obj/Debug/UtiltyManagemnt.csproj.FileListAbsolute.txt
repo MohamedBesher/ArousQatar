@@ -1,0 +1,9 @@
+E:\saned\ArousQatar\Saned.ArousQatar\UtiltyManagemnt\bin\Debug\UtiltyManagemnt.dll
+E:\saned\ArousQatar\Saned.ArousQatar\UtiltyManagemnt\bin\Debug\UtiltyManagemnt.pdb
+E:\saned\ArousQatar\Saned.ArousQatar\UtiltyManagemnt\bin\Debug\EntityFramework.dll
+E:\saned\ArousQatar\Saned.ArousQatar\UtiltyManagemnt\bin\Debug\EntityFramework.SqlServer.dll
+E:\saned\ArousQatar\Saned.ArousQatar\UtiltyManagemnt\bin\Debug\EntityFramework.xml
+E:\saned\ArousQatar\Saned.ArousQatar\UtiltyManagemnt\bin\Debug\EntityFramework.SqlServer.xml
+E:\saned\ArousQatar\Saned.ArousQatar\UtiltyManagemnt\obj\Debug\UtiltyManagemnt.dll
+E:\saned\ArousQatar\Saned.ArousQatar\UtiltyManagemnt\obj\Debug\UtiltyManagemnt.pdb
+E:\saned\ArousQatar\Saned.ArousQatar\UtiltyManagemnt\obj\Debug\UtiltyManagemnt.csprojResolveAssemblyReference.cache

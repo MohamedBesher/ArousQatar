@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+		xmlns:android="http://schemas.android.com/apk/res/android"
+			id="twitter-connect-plugin"
+	  version="0.6.0">
+	<name>Twitter Connect</name>
+	<description>Twitter Connect Plugin - Allows single-sign on logins using Twitter</description>
+	<license>Apache 2.0</license>
+	<keywords>cordova,twitter,login,connect</keywords>
+	<repo>https://git-wip-us.apache.org/repos/asf/cordova-plugin-splashscreen.git</repo>
+	<issue>https://issues.apache.org/jira/browse/CB/component/12320653</issue>
+
+	<engines>
+		<engine name="cordova-android" version=">3.9.9" /><!-- Requires Gradle building -->
+<!--		<engine name="cordova-ios" version=">=1.7.1" />-->
+	</engines>
+
+	<js-module src="www/TwitterConnect.js" name="TwitterConnect">
+		<clobbers target="TwitterConnect" />
+	</js-module>
+
+	<preference name="FABRIC_KEY" />
+	<!-- android -->
+	<platform name="android">
+
+		<config-file target="res/xml/config.xml" parent="/*">
+			<feature name="TwitterConnect">
+				<param name="android-package" value="com.manifestwebdesign.twitterconnect.TwitterConnect" />
+			</feature>
+		</config-file>
+		<config-file target="AndroidManifest.xml" parent="/manifest/application">
+			<meta-data android:name="io.fabric.ApiKey" android:value="$FABRIC_KEY" />
+		</config-file>
+
+		<framework src="src/android/twitter.gradle" custom="true" type="gradleReference" />
+		<source-file src="src/android/TwitterConnect.java" target-dir="src/com/manifestwebdesign/twitterconnect" />
+	</platform>
+
+	<!-- ios -->
+	<platform name="ios">
+		<config-file target="config.xml" parent="/*">
+			<feature name="TwitterConnect">
+				<param name="ios-package" value="TwitterConnect" />
+			</feature>
+		</config-file>
+
+		<header-file src="src/ios/TwitterConnect.h" />
+		<source-file src="src/ios/TwitterConnect.m" />
+
+		<framework src="src/ios/Fabric.framework" custom="true" />
+		<framework src="src/ios/TwitterKit.framework" custom="true" />
+		<framework src="src/ios/TwitterCore.framework" custom="true" />
+		<resource-file src="src/ios/TwitterKit.framework/Versions/A/Resources/TwitterKitResources.bundle" />
+		<framework src="CoreText.framework" />
+		<framework src="AddressBook.framework" />
+		<framework src="QuartzCore.framework" />
+		<framework src="Security.framework" />
+		<framework src="Accounts.framework" />
+		<framework src="Social.framework" />
+		<framework src="CoreData.framework" />
+		<config-file target="*-Info.plist" parent="Fabric">
+			<dict>
+				<key>APIKey</key>
+				<string>$FABRIC_KEY</string>
+				<key>Kits</key>
+				<array></array>
+			</dict>
+		</config-file>
+	</platform>
+</plugin>

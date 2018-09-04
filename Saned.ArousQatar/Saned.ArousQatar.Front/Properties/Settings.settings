@@ -1,0 +1,15 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Saned.ArousQatar.Front.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="ApiUrl" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://ArousQatar.saned-projects.com/Uploads/</Value>
+    </Setting>
+    <Setting Name="PlayStoreUrl" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">https://play.google.com/store/apps/details?id=sa.saned.arousqatar</Value>
+    </Setting>
+    <Setting Name="ApplePlayStore" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">https://itunes.apple.com/sa/app/%D8%B9%D8%B1%D9%88%D8%B3-%D9%82%D8%B7%D8%B1/id1231074198?mt=8</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

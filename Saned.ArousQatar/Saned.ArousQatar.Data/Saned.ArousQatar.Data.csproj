@@ -1,0 +1,956 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CDA9ACF6-6778-4D54-933F-BE97EF67A2A8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Saned.ArousQatar.Data</RootNamespace>
+    <AssemblyName>Saned.ArousQatar.Data</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin, Version=2.0.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.2.0.2\lib\net45\Microsoft.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.Owin, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Owin.5.2.3\lib\net45\System.Web.Http.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Core\Dtos\AdvertisementDto.cs" />
+    <Compile Include="Core\Dtos\AdvertisementPriceDto.cs" />
+    <Compile Include="Core\Dtos\AdvertisementSmallDto.cs" />
+    <Compile Include="Core\Dtos\AppUserData.cs" />
+    <Compile Include="Core\Dtos\CategoryAllDto.cs" />
+    <Compile Include="Core\Dtos\CategoryDto.cs" />
+    <Compile Include="Core\Dtos\ChatMessageDto.cs" />
+    <Compile Include="Core\Dtos\ComplaintDto.cs" />
+    <Compile Include="Core\Dtos\CommentDto.cs" />
+    <Compile Include="Core\Dtos\ContactInformationDto.cs" />
+    <Compile Include="Core\Dtos\ContactUsMessageDto.cs" />
+    <Compile Include="Core\Dtos\ContactUsMessageRepository.cs" />
+    <Compile Include="Core\Dtos\FavoriteDto.cs" />
+    <Compile Include="Core\Dtos\LikeDto.cs" />
+    <Compile Include="Core\Dtos\NotificationDto.cs" />
+    <Compile Include="Core\Dtos\RegisterData.cs" />
+    <Compile Include="Core\IUnitOfWork.cs" />
+    <Compile Include="Core\Models\Advertisment.cs" />
+    <Compile Include="Core\Models\AdvertismentImage.cs" />
+    <Compile Include="Core\Models\AdvertismentPrice.cs" />
+    <Compile Include="Core\Models\ApplicationTypes.cs" />
+    <Compile Include="Core\Models\ApplicationUser.cs" />
+    <Compile Include="Core\Models\BankAccount.cs" />
+    <Compile Include="Core\Models\Category.cs" />
+    <Compile Include="Core\Models\ChatHeader.cs" />
+    <Compile Include="Core\Models\ChatMessage.cs" />
+    <Compile Include="Core\Models\ChatRequest.cs" />
+    <Compile Include="Core\Models\Client.cs" />
+    <Compile Include="Core\Models\Comment.cs" />
+    <Compile Include="Core\Models\Complaint.cs" />
+    <Compile Include="Core\Models\ContactInformation.cs" />
+    <Compile Include="Core\Models\ContactType.cs" />
+    <Compile Include="Core\Models\ContactUsMessage .cs" />
+    <Compile Include="Core\Models\EmailSetting.cs" />
+    <Compile Include="Core\Models\Error.cs" />
+    <Compile Include="Core\Models\Favorite.cs" />
+    <Compile Include="Core\Models\IEntityBase.cs" />
+    <Compile Include="Core\Models\Like.cs" />
+    <Compile Include="Core\Models\NotificationLog.cs" />
+    <Compile Include="Core\Models\PushNotification.cs" />
+    <Compile Include="Core\Models\RefreshToken.cs" />
+    <Compile Include="Core\Models\Transaction.cs" />
+    <Compile Include="Core\Repositories\IAdvertisementImageRepository.cs" />
+    <Compile Include="Core\Repositories\IAdvertisementTransactionRepository.cs" />
+    <Compile Include="Core\Repositories\IAdvertisementPriceRepository.cs" />
+    <Compile Include="Core\Repositories\IAdvertisementRepository.cs" />
+    <Compile Include="Core\Repositories\IApplicationUserRepositoryAsync.cs" />
+    <Compile Include="Core\Repositories\IBankAccountRepository.cs" />
+    <Compile Include="Core\Repositories\IContactUsMessageRepository.cs" />
+    <Compile Include="Core\Repositories\IChatRequestRepositoryAsync.cs" />
+    <Compile Include="Core\Repositories\IEmailSettingRepository.cs" />
+    <Compile Include="Core\Repositories\ILikeRepository.cs" />
+    <Compile Include="Core\Repositories\IFavoriteRepository.cs" />
+    <Compile Include="Core\Repositories\IContactTypeRepository.cs" />
+    <Compile Include="Core\Repositories\IContactInformationRepository.cs" />
+    <Compile Include="Core\Repositories\IComplaintRepository.cs" />
+    <Compile Include="Core\Repositories\ICommentRepository.cs" />
+    <Compile Include="Core\Repositories\ICategoryRepository.cs" />
+    <Compile Include="Core\Repositories\IErrorRepository.cs" />
+    <Compile Include="Core\Repositories\INotificationRepository.cs" />
+    <Compile Include="Core\Tools\Helper.cs" />
+    <Compile Include="Persistence\EntityConfigurations\AdvertismentConfigurations.cs" />
+    <Compile Include="Persistence\EntityConfigurations\AdvertismentImageConfigurations.cs" />
+    <Compile Include="Persistence\EntityConfigurations\AdvertismentPriceConfigurations.cs" />
+    <Compile Include="Persistence\EntityConfigurations\AdvertismentTransactionConfigurations.cs" />
+    <Compile Include="Persistence\EntityConfigurations\ApplicationUserConfigurations.cs" />
+    <Compile Include="Persistence\EntityConfigurations\BankAccountConfigurations.cs" />
+    <Compile Include="Persistence\EntityConfigurations\ChatHeaderConfigurations.cs" />
+    <Compile Include="Persistence\EntityConfigurations\ChatMessageConfigurations.cs" />
+    <Compile Include="Persistence\EntityConfigurations\ChatRequestConfigurations.cs" />
+    <Compile Include="Persistence\EntityConfigurations\CommentConfigurations.cs" />
+    <Compile Include="Persistence\EntityConfigurations\ComplaintConfigurations.cs" />
+    <Compile Include="Persistence\EntityConfigurations\ContactInformationConfigurations.cs" />
+    <Compile Include="Persistence\EntityConfigurations\ContactTypeConfigurations.cs" />
+    <Compile Include="Persistence\EntityConfigurations\ContactUsMessageConfigurations.cs" />
+    <Compile Include="Persistence\EntityConfigurations\EntityBaseConfigurations.cs" />
+    <Compile Include="Persistence\EntityConfigurations\FavoritesConfigurations.cs" />
+    <Compile Include="Persistence\EntityConfigurations\LikeConfigurations.cs" />
+    <Compile Include="Persistence\IApplicationDbContext.cs" />
+    <Compile Include="Persistence\Infrastructure\ApplicationUserManager.cs" />
+    <Compile Include="Persistence\Infrastructure\ApplicationUserManagerImpl.cs" />
+    <Compile Include="Persistence\Infrastructure\ApplicationUserStore.cs" />
+    <Compile Include="Persistence\Infrastructure\ApplicationUserStoreImpl.cs" />
+    <Compile Include="Persistence\Infrastructure\DbFactory.cs" />
+    <Compile Include="Persistence\Infrastructure\Disposable.cs" />
+    <Compile Include="Persistence\Infrastructure\IDbFactory.cs" />
+    <Compile Include="Persistence\Infrastructure\IUserCustomStore.cs" />
+    <Compile Include="Persistence\Migrations\201611031519577_TableCategory.cs" />
+    <Compile Include="Persistence\Migrations\201611031519577_TableCategory.Designer.cs">
+      <DependentUpon>201611031519577_TableCategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Migrations\201611061222043_CompleteConfigurations.cs" />
+    <Compile Include="Persistence\Migrations\201611061222043_CompleteConfigurations.Designer.cs">
+      <DependentUpon>201611061222043_CompleteConfigurations.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Migrations\201611061456262_newEdition.cs" />
+    <Compile Include="Persistence\Migrations\201611061456262_newEdition.Designer.cs">
+      <DependentUpon>201611061456262_newEdition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Migrations\201611081834513_SPGetAllCategories.cs" />
+    <Compile Include="Persistence\Migrations\201611081834513_SPGetAllCategories.Designer.cs">
+      <DependentUpon>201611081834513_SPGetAllCategories.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Migrations\201611091539064_SPGetSingleCategory.cs" />
+    <Compile Include="Persistence\Migrations\201611091539064_SPGetSingleCategory.Designer.cs">
+      <DependentUpon>201611091539064_SPGetSingleCategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Migrations\201611200130119_adding_stored_proc.cs" />
+    <Compile Include="Persistence\Migrations\201611200130119_adding_stored_proc.Designer.cs">
+      <DependentUpon>201611200130119_adding_stored_proc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Migrations\201611200133287_adding_stored_proc_.cs" />
+    <Compile Include="Persistence\Migrations\201611200133287_adding_stored_proc_.Designer.cs">
+      <DependentUpon>201611200133287_adding_stored_proc_.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Migrations\201611201536347_AplicationJWT.cs" />
+    <Compile Include="Persistence\Migrations\201611201536347_AplicationJWT.Designer.cs">
+      <DependentUpon>201611201536347_AplicationJWT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Migrations\201611231237498_AddNameOfAdvertisement.cs" />
+    <Compile Include="Persistence\Migrations\201611231237498_AddNameOfAdvertisement.Designer.cs">
+      <DependentUpon>201611231237498_AddNameOfAdvertisement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Migrations\201611251321233_apiChanges.cs" />
+    <Compile Include="Persistence\Migrations\201611251321233_apiChanges.Designer.cs">
+      <DependentUpon>201611251321233_apiChanges.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Migrations\201611251547110_AdvertisementGetSingle.cs" />
+    <Compile Include="Persistence\Migrations\201611251547110_AdvertisementGetSingle.Designer.cs">
+      <DependentUpon>201611251547110_AdvertisementGetSingle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Migrations\201611251635137_AdvertisementArchiveGetAll.cs" />
+    <Compile Include="Persistence\Migrations\201611251635137_AdvertisementArchiveGetAll.Designer.cs">
+      <DependentUpon>201611251635137_AdvertisementArchiveGetAll.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Migrations\201611251643052_AdvertisementArchieveCount.cs" />
+    <Compile Include="Persistence\Migrations\201611251643052_AdvertisementArchieveCount.Designer.cs">
+      <DependentUpon>201611251643052_AdvertisementArchieveCount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Migrations\201611251736251_AdvertisementImageResetMain.cs" />
+    <Compile Include="Persistence\Migrations\201611251736251_AdvertisementImageResetMain.Designer.cs">
+      <DependentUpon>201611251736251_AdvertisementImageResetMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Migrations\201611251805185_AdvertisementPriceGetAll.cs" />
+    <Compile Include="Persistence\Migrations\201611251805185_AdvertisementPriceGetAll.Designer.cs">
+      <DependentUpon>201611251805185_AdvertisementPriceGetAll.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Migrations\201611251810491_AdvertisementPriceArchieveGetAll.cs" />
+    <Compile Include="Persistence\Migrations\201611251810491_AdvertisementPriceArchieveGetAll.Designer.cs">
+      <DependentUpon>201611251810491_AdvertisementPriceArchieveGetAll.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Migrations\201611251813168_AdvertisementPriceArchieveCount.cs" />
+    <Compile Include="Persistence\Migrations\201611251813168_AdvertisementPriceArchieveCount.Designer.cs">
+      <DependentUpon>201611251813168_AdvertisementPriceArchieveCount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Migrations\201611252210160_AdvertisementPriceGetSingle.cs" />
+    <Compile Include="Persistence\Migrations\201611252210160_AdvertisementPriceGetSingle.Designer.cs">
+      <DependentUpon>201611252210160_AdvertisementPriceGetSingle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Migrations\201611252215455_AdvertisementPriceIsRelatedWithAdvertisement.cs" />
+    <Compile Include="Persistence\Migrations\201611252215455_AdvertisementPriceIsRelatedWithAdvertisement.Designer.cs">
+      <DependentUpon>201611252215455_AdvertisementPriceIsRelatedWithAdvertisement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Migrations\201611252305302_BankAccountGetAll.cs" />
+    <Compile Include="Persistence\Migrations\201611252305302_BankAccountGetAll.Designer.cs">
+      <DependentUpon>201611252305302_BankAccountGetAll.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Migrations\201611252309239_BankAccountGetSingle.cs" />
+    <Compile Include="Persistence\Migrations\201611252309239_BankAccountGetSingle.Designer.cs">
+      <DependentUpon>201611252309239_BankAccountGetSingle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Migrations\201611252327385_CategoryGetAll.cs" />
+    <Compile Include="Persistence\Migrations\201611252327385_CategoryGetAll.Designer.cs">
+      <DependentUpon>201611252327385_CategoryGetAll.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Migrations\201611252330042_CategoryArchieveGetAll.cs" />
+    <Compile Include="Persistence\Migrations\201611252330042_CategoryArchieveGetAll.Designer.cs">
+      <DependentUpon>201611252330042_CategoryArchieveGetAll.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Migrations\201611252331161_CategoryGetSingle.cs" />
+    <Compile Include="Persistence\Migrations\201611252331161_CategoryGetSingle.Designer.cs">
+      <DependentUpon>201611252331161_CategoryGetSingle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Migrations\201611252333311_CategoryArchieveCount.cs" />
+    <Compile Include="Persistence\Migrations\201611252333311_CategoryArchieveCount.Designer.cs">
+      <DependentUpon>201611252333311_CategoryArchieveCount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Migrations\201611252335511_CategoryIsRelatedWithAdvertisements.cs" />
+    <Compile Include="Persistence\Migrations\201611252335511_CategoryIsRelatedWithAdvertisements.Designer.cs">
+      <DependentUpon>201611252335511_CategoryIsRelatedWithAdvertisements.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Migrations\201611252338185_CategoryCount.cs" />
+    <Compile Include="Persistence\Migrations\201611252338185_CategoryCount.Designer.cs">
+      <DependentUpon>201611252338185_CategoryCount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Migrations\201611261137551_CommentReplyGetAll.cs" />
+    <Compile Include="Persistence\Migrations\201611261137551_CommentReplyGetAll.Designer.cs">
+      <DependentUpon>201611261137551_CommentReplyGetAll.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Migrations\201611261145291_CommentGetAll.cs" />
+    <Compile Include="Persistence\Migrations\201611261145291_CommentGetAll.Designer.cs">
+      <DependentUpon>201611261145291_CommentGetAll.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Migrations\201611261212133_CommentGetSingle.cs" />
+    <Compile Include="Persistence\Migrations\201611261212133_CommentGetSingle.Designer.cs">
+      <DependentUpon>201611261212133_CommentGetSingle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Migrations\201611261223226_CommentGetSingleWithoutUser.cs" />
+    <Compile Include="Persistence\Migrations\201611261223226_CommentGetSingleWithoutUser.Designer.cs">
+      <DependentUpon>201611261223226_CommentGetSingleWithoutUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Migrations\201611261851293_editCommentModel.cs" />
+    <Compile Include="Persistence\Migrations\201611261851293_editCommentModel.Designer.cs">
+      <DependentUpon>201611261851293_editCommentModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Migrations\201611261902117_editComplaint.cs" />
+    <Compile Include="Persistence\Migrations\201611261902117_editComplaint.Designer.cs">
+      <DependentUpon>201611261902117_editComplaint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Migrations\201611261904272_editComplaint1.cs" />
+    <Compile Include="Persistence\Migrations\201611261904272_editComplaint1.Designer.cs">
+      <DependentUpon>201611261904272_editComplaint1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Migrations\201611261908056_rescafoldingComplaint.cs" />
+    <Compile Include="Persistence\Migrations\201611261908056_rescafoldingComplaint.Designer.cs">
+      <DependentUpon>201611261908056_rescafoldingComplaint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Migrations\201611261958060_ComplaintUserGetAll.cs" />
+    <Compile Include="Persistence\Migrations\201611261958060_ComplaintUserGetAll.Designer.cs">
+      <DependentUpon>201611261958060_ComplaintUserGetAll.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Migrations\201611261959056_ComplaintAdvertisementGetAll.cs" />
+    <Compile Include="Persistence\Migrations\201611261959056_ComplaintAdvertisementGetAll.Designer.cs">
+      <DependentUpon>201611261959056_ComplaintAdvertisementGetAll.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Migrations\201611262007543_ComplaintUserArchieveGetAll.cs" />
+    <Compile Include="Persistence\Migrations\201611262007543_ComplaintUserArchieveGetAll.Designer.cs">
+      <DependentUpon>201611262007543_ComplaintUserArchieveGetAll.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Migrations\201611262009284_ComplaintAdvertisementArchieveGetAll.cs" />
+    <Compile Include="Persistence\Migrations\201611262009284_ComplaintAdvertisementArchieveGetAll.Designer.cs">
+      <DependentUpon>201611262009284_ComplaintAdvertisementArchieveGetAll.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Migrations\201611262024449_ComplaintGetSingle.cs" />
+    <Compile Include="Persistence\Migrations\201611262024449_ComplaintGetSingle.Designer.cs">
+      <DependentUpon>201611262024449_ComplaintGetSingle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Migrations\201611262030046_ContactTypeGetSingle.cs" />
+    <Compile Include="Persistence\Migrations\201611262030046_ContactTypeGetSingle.Designer.cs">
+      <DependentUpon>201611262030046_ContactTypeGetSingle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Migrations\201611262031344_ContactTypeIsRelatedToContactInformation.cs" />
+    <Compile Include="Persistence\Migrations\201611262031344_ContactTypeIsRelatedToContactInformation.Designer.cs">
+      <DependentUpon>201611262031344_ContactTypeIsRelatedToContactInformation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Migrations\201611262035488_ContactTypeGetAll.cs" />
+    <Compile Include="Persistence\Migrations\201611262035488_ContactTypeGetAll.Designer.cs">
+      <DependentUpon>201611262035488_ContactTypeGetAll.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Migrations\201611262039470_ContactInformationGetAll.cs" />
+    <Compile Include="Persistence\Migrations\201611262039470_ContactInformationGetAll.Designer.cs">
+      <DependentUpon>201611262039470_ContactInformationGetAll.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Migrations\201611262042559_ContactInformationGetSingle.cs" />
+    <Compile Include="Persistence\Migrations\201611262042559_ContactInformationGetSingle.Designer.cs">
+      <DependentUpon>201611262042559_ContactInformationGetSingle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Migrations\201611271008550_FavoriteGetAll.cs" />
+    <Compile Include="Persistence\Migrations\201611271008550_FavoriteGetAll.Designer.cs">
+      <DependentUpon>201611271008550_FavoriteGetAll.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Migrations\201611271017286_FavoriteGetOne.cs" />
+    <Compile Include="Persistence\Migrations\201611271017286_FavoriteGetOne.Designer.cs">
+      <DependentUpon>201611271017286_FavoriteGetOne.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Migrations\201611271029464_FavoriteGetSingle.cs" />
+    <Compile Include="Persistence\Migrations\201611271029464_FavoriteGetSingle.Designer.cs">
+      <DependentUpon>201611271029464_FavoriteGetSingle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Migrations\201611271032281_LikeGetAll.cs" />
+    <Compile Include="Persistence\Migrations\201611271032281_LikeGetAll.Designer.cs">
+      <DependentUpon>201611271032281_LikeGetAll.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Migrations\201611271038107_LikeGetSingle.cs" />
+    <Compile Include="Persistence\Migrations\201611271038107_LikeGetSingle.Designer.cs">
+      <DependentUpon>201611271038107_LikeGetSingle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Migrations\201611271523260_CategoryGetName.cs" />
+    <Compile Include="Persistence\Migrations\201611271523260_CategoryGetName.Designer.cs">
+      <DependentUpon>201611271523260_CategoryGetName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Migrations\201611271640241_AdvertisementGetByUsername.cs" />
+    <Compile Include="Persistence\Migrations\201611271640241_AdvertisementGetByUsername.Designer.cs">
+      <DependentUpon>201611271640241_AdvertisementGetByUsername.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Migrations\201611271721209_deleteIsArchieve.cs" />
+    <Compile Include="Persistence\Migrations\201611271721209_deleteIsArchieve.Designer.cs">
+      <DependentUpon>201611271721209_deleteIsArchieve.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Migrations\201611271723512_addIsArchieve.cs" />
+    <Compile Include="Persistence\Migrations\201611271723512_addIsArchieve.Designer.cs">
+      <DependentUpon>201611271723512_addIsArchieve.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Migrations\201611271846383_AdvertisementGetAll.cs" />
+    <Compile Include="Persistence\Migrations\201611271846383_AdvertisementGetAll.Designer.cs">
+      <DependentUpon>201611271846383_AdvertisementGetAll.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Migrations\201611271857486_AdvertisementGetAllByCategoryId.cs" />
+    <Compile Include="Persistence\Migrations\201611271857486_AdvertisementGetAllByCategoryId.Designer.cs">
+      <DependentUpon>201611271857486_AdvertisementGetAllByCategoryId.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Migrations\201611301545339_AdvertismentDelete.cs" />
+    <Compile Include="Persistence\Migrations\201611301545339_AdvertismentDelete.Designer.cs">
+      <DependentUpon>201611301545339_AdvertismentDelete.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Migrations\201611301619154_CommentDeleteAllReplays.cs" />
+    <Compile Include="Persistence\Migrations\201611301619154_CommentDeleteAllReplays.Designer.cs">
+      <DependentUpon>201611301619154_CommentDeleteAllReplays.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Migrations\201701151002558_updateuser.cs" />
+    <Compile Include="Persistence\Migrations\201701151002558_updateuser.Designer.cs">
+      <DependentUpon>201701151002558_updateuser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Migrations\201701171135445_SelectUserInfo.cs" />
+    <Compile Include="Persistence\Migrations\201701171135445_SelectUserInfo.Designer.cs">
+      <DependentUpon>201701171135445_SelectUserInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Migrations\201701171250158_UpdateImageURL.cs" />
+    <Compile Include="Persistence\Migrations\201701171250158_UpdateImageURL.Designer.cs">
+      <DependentUpon>201701171250158_UpdateImageURL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Migrations\201701171254346_UpdateUserInfo.cs" />
+    <Compile Include="Persistence\Migrations\201701171254346_UpdateUserInfo.Designer.cs">
+      <DependentUpon>201701171254346_UpdateUserInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Migrations\201701180923261_Categories_SelectAllPaging.cs" />
+    <Compile Include="Persistence\Migrations\201701180923261_Categories_SelectAllPaging.Designer.cs">
+      <DependentUpon>201701180923261_Categories_SelectAllPaging.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Migrations\201701181008308_Advertisments_SelectAllPaging.cs" />
+    <Compile Include="Persistence\Migrations\201701181008308_Advertisments_SelectAllPaging.Designer.cs">
+      <DependentUpon>201701181008308_Advertisments_SelectAllPaging.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Migrations\201701241150052_EditFavoriteGetAll.cs" />
+    <Compile Include="Persistence\Migrations\201701241150052_EditFavoriteGetAll.Designer.cs">
+      <DependentUpon>201701241150052_EditFavoriteGetAll.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Migrations\201701241225294_EditAdvertisementGetSingle.cs" />
+    <Compile Include="Persistence\Migrations\201701241225294_EditAdvertisementGetSingle.Designer.cs">
+      <DependentUpon>201701241225294_EditAdvertisementGetSingle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Migrations\201701301230583_AdvertismentsSP.cs" />
+    <Compile Include="Persistence\Migrations\201701301230583_AdvertismentsSP.Designer.cs">
+      <DependentUpon>201701301230583_AdvertismentsSP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Migrations\201701310903223_Alter FavoritGetAllSp.cs" />
+    <Compile Include="Persistence\Migrations\201701310903223_Alter FavoritGetAllSp.Designer.cs">
+      <DependentUpon>201701310903223_Alter FavoritGetAllSp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Migrations\201701311038202_createAdPriceGetAllSP.cs" />
+    <Compile Include="Persistence\Migrations\201701311038202_createAdPriceGetAllSP.Designer.cs">
+      <DependentUpon>201701311038202_createAdPriceGetAllSP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Migrations\201701311225065_updateAdvertismentPrice.cs" />
+    <Compile Include="Persistence\Migrations\201701311225065_updateAdvertismentPrice.Designer.cs">
+      <DependentUpon>201701311225065_updateAdvertismentPrice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Migrations\201701311235026_UpdateDatesAdvertisments.cs" />
+    <Compile Include="Persistence\Migrations\201701311235026_UpdateDatesAdvertisments.Designer.cs">
+      <DependentUpon>201701311235026_UpdateDatesAdvertisments.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Migrations\201701311454422_UpdateAdvertisementGetSingleSP.cs" />
+    <Compile Include="Persistence\Migrations\201701311454422_UpdateAdvertisementGetSingleSP.Designer.cs">
+      <DependentUpon>201701311454422_UpdateAdvertisementGetSingleSP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Migrations\201702011307272_updateCommentGetAllSP.cs" />
+    <Compile Include="Persistence\Migrations\201702011307272_updateCommentGetAllSP.Designer.cs">
+      <DependentUpon>201702011307272_updateCommentGetAllSP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Migrations\201702020912303_updateContactInfoAndContactTypeSp.cs" />
+    <Compile Include="Persistence\Migrations\201702020912303_updateContactInfoAndContactTypeSp.Designer.cs">
+      <DependentUpon>201702020912303_updateContactInfoAndContactTypeSp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Migrations\201702050813426_ChatModel.cs" />
+    <Compile Include="Persistence\Migrations\201702050813426_ChatModel.Designer.cs">
+      <DependentUpon>201702050813426_ChatModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Migrations\201702060853281_ChatRequests_AddSP.cs" />
+    <Compile Include="Persistence\Migrations\201702060853281_ChatRequests_AddSP.Designer.cs">
+      <DependentUpon>201702060853281_ChatRequests_AddSP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Migrations\201702061208564_ChatHeader_ListByAdvertismentId.cs" />
+    <Compile Include="Persistence\Migrations\201702061208564_ChatHeader_ListByAdvertismentId.Designer.cs">
+      <DependentUpon>201702061208564_ChatHeader_ListByAdvertismentId.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Migrations\201702061224393_ChatMessages_SelectListSP.cs" />
+    <Compile Include="Persistence\Migrations\201702061224393_ChatMessages_SelectListSP.Designer.cs">
+      <DependentUpon>201702061224393_ChatMessages_SelectListSP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Migrations\201702070946406_ChatHeaderSP.cs" />
+    <Compile Include="Persistence\Migrations\201702070946406_ChatHeaderSP.Designer.cs">
+      <DependentUpon>201702070946406_ChatHeaderSP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Migrations\201702071016515_ContactUSMessageTable.cs" />
+    <Compile Include="Persistence\Migrations\201702071016515_ContactUSMessageTable.Designer.cs">
+      <DependentUpon>201702071016515_ContactUSMessageTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Migrations\201702071103033_UpdateContactusMessageTable.cs" />
+    <Compile Include="Persistence\Migrations\201702071103033_UpdateContactusMessageTable.Designer.cs">
+      <DependentUpon>201702071103033_UpdateContactusMessageTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Migrations\201702091218277_UsersControllerSP.cs" />
+    <Compile Include="Persistence\Migrations\201702091218277_UsersControllerSP.Designer.cs">
+      <DependentUpon>201702091218277_UsersControllerSP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Migrations\201702131451035_GetAllCommentsStored.cs" />
+    <Compile Include="Persistence\Migrations\201702131451035_GetAllCommentsStored.Designer.cs">
+      <DependentUpon>201702131451035_GetAllCommentsStored.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Migrations\201702200802199_CreateAdvertisementPriceIsDuplicateDaysCount.cs" />
+    <Compile Include="Persistence\Migrations\201702200802199_CreateAdvertisementPriceIsDuplicateDaysCount.Designer.cs">
+      <DependentUpon>201702200802199_CreateAdvertisementPriceIsDuplicateDaysCount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Migrations\201702200955438_AlterAspNetUsers_GetAllFilterd.cs" />
+    <Compile Include="Persistence\Migrations\201702200955438_AlterAspNetUsers_GetAllFilterd.Designer.cs">
+      <DependentUpon>201702200955438_AlterAspNetUsers_GetAllFilterd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Migrations\201702211201062_AlterComplaintAdvertisementGetAll.cs" />
+    <Compile Include="Persistence\Migrations\201702211201062_AlterComplaintAdvertisementGetAll.Designer.cs">
+      <DependentUpon>201702211201062_AlterComplaintAdvertisementGetAll.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Migrations\201702220818532_AlterStoredProcedureChatHeader_ListByUserId_and_ChatHeader_ListByAdvertismentId.cs" />
+    <Compile Include="Persistence\Migrations\201702220818532_AlterStoredProcedureChatHeader_ListByUserId_and_ChatHeader_ListByAdvertismentId.Designer.cs">
+      <DependentUpon>201702220818532_AlterStoredProcedureChatHeader_ListByUserId_and_ChatHeader_ListByAdvertismentId.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Migrations\201702220918094_AlterStoredProcedure_Advertisements_DeleteAdvertisement.cs" />
+    <Compile Include="Persistence\Migrations\201702220918094_AlterStoredProcedure_Advertisements_DeleteAdvertisement.Designer.cs">
+      <DependentUpon>201702220918094_AlterStoredProcedure_Advertisements_DeleteAdvertisement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Migrations\201703211218205_CreateNotificationStoredProcedure.cs" />
+    <Compile Include="Persistence\Migrations\201703211218205_CreateNotificationStoredProcedure.Designer.cs">
+      <DependentUpon>201703211218205_CreateNotificationStoredProcedure.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Migrations\201703211319314_AddIsActiveAdvertisment.cs" />
+    <Compile Include="Persistence\Migrations\201703211319314_AddIsActiveAdvertisment.Designer.cs">
+      <DependentUpon>201703211319314_AddIsActiveAdvertisment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Migrations\201703211332572_AlterIsActiveAdvertisement.cs" />
+    <Compile Include="Persistence\Migrations\201703211332572_AlterIsActiveAdvertisement.Designer.cs">
+      <DependentUpon>201703211332572_AlterIsActiveAdvertisement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Migrations\201703211506498_AlterFavoriteGetAll.cs" />
+    <Compile Include="Persistence\Migrations\201703211506498_AlterFavoriteGetAll.Designer.cs">
+      <DependentUpon>201703211506498_AlterFavoriteGetAll.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Migrations\201703220739498_SelectOnlyActiveAds.cs" />
+    <Compile Include="Persistence\Migrations\201703220739498_SelectOnlyActiveAds.Designer.cs">
+      <DependentUpon>201703220739498_SelectOnlyActiveAds.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Migrations\201703300940034_UpdateDB.cs" />
+    <Compile Include="Persistence\Migrations\201703300940034_UpdateDB.Designer.cs">
+      <DependentUpon>201703300940034_UpdateDB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Migrations\201704040938380_Edit-stored-AdvertisementGetSingle.cs" />
+    <Compile Include="Persistence\Migrations\201704040938380_Edit-stored-AdvertisementGetSingle.Designer.cs">
+      <DependentUpon>201704040938380_Edit-stored-AdvertisementGetSingle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Migrations\201704041138339_Edit-stored-AdvertisementGetSingle2.cs" />
+    <Compile Include="Persistence\Migrations\201704041138339_Edit-stored-AdvertisementGetSingle2.Designer.cs">
+      <DependentUpon>201704041138339_Edit-stored-AdvertisementGetSingle2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Migrations\201704051254234_add-AdvertisementTransaction.cs" />
+    <Compile Include="Persistence\Migrations\201704051254234_add-AdvertisementTransaction.Designer.cs">
+      <DependentUpon>201704051254234_add-AdvertisementTransaction.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Migrations\201704061223048_add-Advertisement-IsExpired.cs" />
+    <Compile Include="Persistence\Migrations\201704061223048_add-Advertisement-IsExpired.Designer.cs">
+      <DependentUpon>201704061223048_add-Advertisement-IsExpired.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Migrations\201704061543293_add-Advertisement-EditHomeAds.cs" />
+    <Compile Include="Persistence\Migrations\201704061543293_add-Advertisement-EditHomeAds.Designer.cs">
+      <DependentUpon>201704061543293_add-Advertisement-EditHomeAds.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Migrations\201704101003330_add-status-Users.cs" />
+    <Compile Include="Persistence\Migrations\201704101003330_add-status-Users.Designer.cs">
+      <DependentUpon>201704101003330_add-status-Users.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Migrations\201704110915425_edit-Advertisement-isArchive-false.cs" />
+    <Compile Include="Persistence\Migrations\201704110915425_edit-Advertisement-isArchive-false.Designer.cs">
+      <DependentUpon>201704110915425_edit-Advertisement-isArchive-false.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Migrations\201704110941328_test.cs" />
+    <Compile Include="Persistence\Migrations\201704110941328_test.Designer.cs">
+      <DependentUpon>201704110941328_test.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Migrations\201705160904509_add-cost-Advertisement.cs" />
+    <Compile Include="Persistence\Migrations\201705160904509_add-cost-Advertisement.Designer.cs">
+      <DependentUpon>201705160904509_add-cost-Advertisement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Migrations\201705211303197_Edit-stored-Latest.cs" />
+    <Compile Include="Persistence\Migrations\201705211303197_Edit-stored-Latest.Designer.cs">
+      <DependentUpon>201705211303197_Edit-stored-Latest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Migrations\Configuration.cs" />
+    <Compile Include="Persistence\ApplicationDbContext.cs" />
+    <Compile Include="Persistence\EntityConfigurations\CategoryConfigurations.cs" />
+    <Compile Include="Persistence\Infrastructure\ApplicationUser.cs" />
+    <Compile Include="Core\Repositories\IEntityBaseRepository.cs" />
+    <Compile Include="Persistence\Providers\ApplicationTokenProvider.cs" />
+    <Compile Include="Persistence\Repositories\TransactionRepository.cs" />
+    <Compile Include="Persistence\Repositories\AdvertismentPriceRepository.cs" />
+    <Compile Include="Persistence\Repositories\AdvertisementImageRepository.cs" />
+    <Compile Include="Persistence\Repositories\AdvertisementRepository.cs" />
+    <Compile Include="Persistence\Repositories\AuthRepository.cs" />
+    <Compile Include="Persistence\Repositories\BankAccountRepository.cs" />
+    <Compile Include="Persistence\Repositories\BaseRepositroy.cs" />
+    <Compile Include="Persistence\Repositories\ChatRequestRepositoryAsync.cs" />
+    <Compile Include="Persistence\Repositories\EmailSettingRepository.cs" />
+    <Compile Include="Core\Repositories\IAuthRepository.cs" />
+    <Compile Include="Persistence\Repositories\LikeRepository.cs" />
+    <Compile Include="Persistence\Repositories\FavoriteRepository.cs" />
+    <Compile Include="Persistence\Repositories\ContactTypeRepository.cs" />
+    <Compile Include="Persistence\Repositories\ContactInformationRepository.cs" />
+    <Compile Include="Persistence\Repositories\ComplaintRepository.cs" />
+    <Compile Include="Persistence\Repositories\CommentRepository.cs" />
+    <Compile Include="Persistence\Repositories\CategoryRepository.cs" />
+    <Compile Include="Persistence\Repositories\EntityBaseRepository.cs" />
+    <Compile Include="Persistence\Repositories\ErrorRepository.cs" />
+    <Compile Include="Persistence\Repositories\NotificationRepository.cs" />
+    <Compile Include="Persistence\Services\EmailService.cs" />
+    <Compile Include="Persistence\Tools\EmailManager.cs" />
+    <Compile Include="Persistence\UnitOfWork.cs" />
+    <Compile Include="Persistence\Validators\ApplicationUserValidator.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Persistence\Migrations\201611031519577_TableCategory.resx">
+      <DependentUpon>201611031519577_TableCategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\201611061222043_CompleteConfigurations.resx">
+      <DependentUpon>201611061222043_CompleteConfigurations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\201611061456262_newEdition.resx">
+      <DependentUpon>201611061456262_newEdition.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\201611081834513_SPGetAllCategories.resx">
+      <DependentUpon>201611081834513_SPGetAllCategories.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\201611091539064_SPGetSingleCategory.resx">
+      <DependentUpon>201611091539064_SPGetSingleCategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\201611200130119_adding_stored_proc.resx">
+      <DependentUpon>201611200130119_adding_stored_proc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\201611200133287_adding_stored_proc_.resx">
+      <DependentUpon>201611200133287_adding_stored_proc_.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\201611201536347_AplicationJWT.resx">
+      <DependentUpon>201611201536347_AplicationJWT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\201611231237498_AddNameOfAdvertisement.resx">
+      <DependentUpon>201611231237498_AddNameOfAdvertisement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\201611251321233_apiChanges.resx">
+      <DependentUpon>201611251321233_apiChanges.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\201611251547110_AdvertisementGetSingle.resx">
+      <DependentUpon>201611251547110_AdvertisementGetSingle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\201611251635137_AdvertisementArchiveGetAll.resx">
+      <DependentUpon>201611251635137_AdvertisementArchiveGetAll.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\201611251643052_AdvertisementArchieveCount.resx">
+      <DependentUpon>201611251643052_AdvertisementArchieveCount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\201611251736251_AdvertisementImageResetMain.resx">
+      <DependentUpon>201611251736251_AdvertisementImageResetMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\201611251805185_AdvertisementPriceGetAll.resx">
+      <DependentUpon>201611251805185_AdvertisementPriceGetAll.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\201611251810491_AdvertisementPriceArchieveGetAll.resx">
+      <DependentUpon>201611251810491_AdvertisementPriceArchieveGetAll.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\201611251813168_AdvertisementPriceArchieveCount.resx">
+      <DependentUpon>201611251813168_AdvertisementPriceArchieveCount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\201611252210160_AdvertisementPriceGetSingle.resx">
+      <DependentUpon>201611252210160_AdvertisementPriceGetSingle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\201611252215455_AdvertisementPriceIsRelatedWithAdvertisement.resx">
+      <DependentUpon>201611252215455_AdvertisementPriceIsRelatedWithAdvertisement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\201611252305302_BankAccountGetAll.resx">
+      <DependentUpon>201611252305302_BankAccountGetAll.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\201611252309239_BankAccountGetSingle.resx">
+      <DependentUpon>201611252309239_BankAccountGetSingle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\201611252327385_CategoryGetAll.resx">
+      <DependentUpon>201611252327385_CategoryGetAll.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\201611252330042_CategoryArchieveGetAll.resx">
+      <DependentUpon>201611252330042_CategoryArchieveGetAll.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\201611252331161_CategoryGetSingle.resx">
+      <DependentUpon>201611252331161_CategoryGetSingle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\201611252333311_CategoryArchieveCount.resx">
+      <DependentUpon>201611252333311_CategoryArchieveCount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\201611252335511_CategoryIsRelatedWithAdvertisements.resx">
+      <DependentUpon>201611252335511_CategoryIsRelatedWithAdvertisements.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\201611252338185_CategoryCount.resx">
+      <DependentUpon>201611252338185_CategoryCount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\201611261137551_CommentReplyGetAll.resx">
+      <DependentUpon>201611261137551_CommentReplyGetAll.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\201611261145291_CommentGetAll.resx">
+      <DependentUpon>201611261145291_CommentGetAll.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\201611261212133_CommentGetSingle.resx">
+      <DependentUpon>201611261212133_CommentGetSingle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\201611261223226_CommentGetSingleWithoutUser.resx">
+      <DependentUpon>201611261223226_CommentGetSingleWithoutUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\201611261851293_editCommentModel.resx">
+      <DependentUpon>201611261851293_editCommentModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\201611261902117_editComplaint.resx">
+      <DependentUpon>201611261902117_editComplaint.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\201611261904272_editComplaint1.resx">
+      <DependentUpon>201611261904272_editComplaint1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\201611261908056_rescafoldingComplaint.resx">
+      <DependentUpon>201611261908056_rescafoldingComplaint.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\201611261958060_ComplaintUserGetAll.resx">
+      <DependentUpon>201611261958060_ComplaintUserGetAll.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\201611261959056_ComplaintAdvertisementGetAll.resx">
+      <DependentUpon>201611261959056_ComplaintAdvertisementGetAll.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\201611262007543_ComplaintUserArchieveGetAll.resx">
+      <DependentUpon>201611262007543_ComplaintUserArchieveGetAll.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\201611262009284_ComplaintAdvertisementArchieveGetAll.resx">
+      <DependentUpon>201611262009284_ComplaintAdvertisementArchieveGetAll.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\201611262024449_ComplaintGetSingle.resx">
+      <DependentUpon>201611262024449_ComplaintGetSingle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\201611262030046_ContactTypeGetSingle.resx">
+      <DependentUpon>201611262030046_ContactTypeGetSingle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\201611262031344_ContactTypeIsRelatedToContactInformation.resx">
+      <DependentUpon>201611262031344_ContactTypeIsRelatedToContactInformation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\201611262035488_ContactTypeGetAll.resx">
+      <DependentUpon>201611262035488_ContactTypeGetAll.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\201611262039470_ContactInformationGetAll.resx">
+      <DependentUpon>201611262039470_ContactInformationGetAll.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\201611262042559_ContactInformationGetSingle.resx">
+      <DependentUpon>201611262042559_ContactInformationGetSingle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\201611271008550_FavoriteGetAll.resx">
+      <DependentUpon>201611271008550_FavoriteGetAll.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\201611271017286_FavoriteGetOne.resx">
+      <DependentUpon>201611271017286_FavoriteGetOne.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\201611271029464_FavoriteGetSingle.resx">
+      <DependentUpon>201611271029464_FavoriteGetSingle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\201611271032281_LikeGetAll.resx">
+      <DependentUpon>201611271032281_LikeGetAll.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\201611271038107_LikeGetSingle.resx">
+      <DependentUpon>201611271038107_LikeGetSingle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\201611271523260_CategoryGetName.resx">
+      <DependentUpon>201611271523260_CategoryGetName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\201611271640241_AdvertisementGetByUsername.resx">
+      <DependentUpon>201611271640241_AdvertisementGetByUsername.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\201611271721209_deleteIsArchieve.resx">
+      <DependentUpon>201611271721209_deleteIsArchieve.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\201611271723512_addIsArchieve.resx">
+      <DependentUpon>201611271723512_addIsArchieve.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\201611271846383_AdvertisementGetAll.resx">
+      <DependentUpon>201611271846383_AdvertisementGetAll.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\201611271857486_AdvertisementGetAllByCategoryId.resx">
+      <DependentUpon>201611271857486_AdvertisementGetAllByCategoryId.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\201611301545339_AdvertismentDelete.resx">
+      <DependentUpon>201611301545339_AdvertismentDelete.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\201611301619154_CommentDeleteAllReplays.resx">
+      <DependentUpon>201611301619154_CommentDeleteAllReplays.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\201701151002558_updateuser.resx">
+      <DependentUpon>201701151002558_updateuser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\201701171135445_SelectUserInfo.resx">
+      <DependentUpon>201701171135445_SelectUserInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\201701171250158_UpdateImageURL.resx">
+      <DependentUpon>201701171250158_UpdateImageURL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\201701171254346_UpdateUserInfo.resx">
+      <DependentUpon>201701171254346_UpdateUserInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\201701180923261_Categories_SelectAllPaging.resx">
+      <DependentUpon>201701180923261_Categories_SelectAllPaging.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\201701181008308_Advertisments_SelectAllPaging.resx">
+      <DependentUpon>201701181008308_Advertisments_SelectAllPaging.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\201701241150052_EditFavoriteGetAll.resx">
+      <DependentUpon>201701241150052_EditFavoriteGetAll.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\201701241225294_EditAdvertisementGetSingle.resx">
+      <DependentUpon>201701241225294_EditAdvertisementGetSingle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\201701301230583_AdvertismentsSP.resx">
+      <DependentUpon>201701301230583_AdvertismentsSP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\201701310903223_Alter FavoritGetAllSp.resx">
+      <DependentUpon>201701310903223_Alter FavoritGetAllSp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\201701311038202_createAdPriceGetAllSP.resx">
+      <DependentUpon>201701311038202_createAdPriceGetAllSP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\201701311225065_updateAdvertismentPrice.resx">
+      <DependentUpon>201701311225065_updateAdvertismentPrice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\201701311235026_UpdateDatesAdvertisments.resx">
+      <DependentUpon>201701311235026_UpdateDatesAdvertisments.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\201701311454422_UpdateAdvertisementGetSingleSP.resx">
+      <DependentUpon>201701311454422_UpdateAdvertisementGetSingleSP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\201702011307272_updateCommentGetAllSP.resx">
+      <DependentUpon>201702011307272_updateCommentGetAllSP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\201702020912303_updateContactInfoAndContactTypeSp.resx">
+      <DependentUpon>201702020912303_updateContactInfoAndContactTypeSp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\201702050813426_ChatModel.resx">
+      <DependentUpon>201702050813426_ChatModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\201702060853281_ChatRequests_AddSP.resx">
+      <DependentUpon>201702060853281_ChatRequests_AddSP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\201702061208564_ChatHeader_ListByAdvertismentId.resx">
+      <DependentUpon>201702061208564_ChatHeader_ListByAdvertismentId.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\201702061224393_ChatMessages_SelectListSP.resx">
+      <DependentUpon>201702061224393_ChatMessages_SelectListSP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\201702070946406_ChatHeaderSP.resx">
+      <DependentUpon>201702070946406_ChatHeaderSP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\201702071016515_ContactUSMessageTable.resx">
+      <DependentUpon>201702071016515_ContactUSMessageTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\201702071103033_UpdateContactusMessageTable.resx">
+      <DependentUpon>201702071103033_UpdateContactusMessageTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\201702091218277_UsersControllerSP.resx">
+      <DependentUpon>201702091218277_UsersControllerSP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\201702131451035_GetAllCommentsStored.resx">
+      <DependentUpon>201702131451035_GetAllCommentsStored.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\201702200802199_CreateAdvertisementPriceIsDuplicateDaysCount.resx">
+      <DependentUpon>201702200802199_CreateAdvertisementPriceIsDuplicateDaysCount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\201702200955438_AlterAspNetUsers_GetAllFilterd.resx">
+      <DependentUpon>201702200955438_AlterAspNetUsers_GetAllFilterd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\201702211201062_AlterComplaintAdvertisementGetAll.resx">
+      <DependentUpon>201702211201062_AlterComplaintAdvertisementGetAll.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\201702220818532_AlterStoredProcedureChatHeader_ListByUserId_and_ChatHeader_ListByAdvertismentId.resx">
+      <DependentUpon>201702220818532_AlterStoredProcedureChatHeader_ListByUserId_and_ChatHeader_ListByAdvertismentId.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\201702220918094_AlterStoredProcedure_Advertisements_DeleteAdvertisement.resx">
+      <DependentUpon>201702220918094_AlterStoredProcedure_Advertisements_DeleteAdvertisement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\201703211218205_CreateNotificationStoredProcedure.resx">
+      <DependentUpon>201703211218205_CreateNotificationStoredProcedure.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\201703211319314_AddIsActiveAdvertisment.resx">
+      <DependentUpon>201703211319314_AddIsActiveAdvertisment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\201703211332572_AlterIsActiveAdvertisement.resx">
+      <DependentUpon>201703211332572_AlterIsActiveAdvertisement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\201703211506498_AlterFavoriteGetAll.resx">
+      <DependentUpon>201703211506498_AlterFavoriteGetAll.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\201703220739498_SelectOnlyActiveAds.resx">
+      <DependentUpon>201703220739498_SelectOnlyActiveAds.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\201703300940034_UpdateDB.resx">
+      <DependentUpon>201703300940034_UpdateDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\201704040938380_Edit-stored-AdvertisementGetSingle.resx">
+      <DependentUpon>201704040938380_Edit-stored-AdvertisementGetSingle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\201704041138339_Edit-stored-AdvertisementGetSingle2.resx">
+      <DependentUpon>201704041138339_Edit-stored-AdvertisementGetSingle2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\201704051254234_add-AdvertisementTransaction.resx">
+      <DependentUpon>201704051254234_add-AdvertisementTransaction.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\201704061223048_add-Advertisement-IsExpired.resx">
+      <DependentUpon>201704061223048_add-Advertisement-IsExpired.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\201704061543293_add-Advertisement-EditHomeAds.resx">
+      <DependentUpon>201704061543293_add-Advertisement-EditHomeAds.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\201704101003330_add-status-Users.resx">
+      <DependentUpon>201704101003330_add-status-Users.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\201704110915425_edit-Advertisement-isArchive-false.resx">
+      <DependentUpon>201704110915425_edit-Advertisement-isArchive-false.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\201704110941328_test.resx">
+      <DependentUpon>201704110941328_test.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\201705160904509_add-cost-Advertisement.resx">
+      <DependentUpon>201705160904509_add-cost-Advertisement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\201705211303197_Edit-stored-Latest.resx">
+      <DependentUpon>201705211303197_Edit-stored-Latest.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\UtiltyManagemnt\UtiltyManagemnt.csproj">
+      <Project>{541347ad-3fcb-4afb-933c-a6b3702b6f97}</Project>
+      <Name>UtiltyManagemnt</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
